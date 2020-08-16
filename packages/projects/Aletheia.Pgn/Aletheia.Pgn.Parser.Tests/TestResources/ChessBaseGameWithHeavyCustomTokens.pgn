@@ -1,0 +1,75 @@
+[Event "Match Labourdonnais-McDonnell(1)+15-6=4"]
+[Site "London"]
+[Date "1834.07.??"]
+[Round "4"]
+[White "De Labourdonnais, Louis Charles Mahe"]
+[Black "McDonnell, Alexander"]
+[Result "1-0"]
+[ECO "C53"]
+[Annotator "Tartakower/du Mont"]
+[PlyCount "61"]
+[EventDate "1834.06.??"]
+[EventType "match"]
+[EventRounds "25"]
+[EventCountry "ENG"]
+[SourceTitle "EXT 2018"]
+[Source "ChessBase"]
+[SourceDate "2017.10.13"]
+[SourceVersion "1"]
+[SourceVersionDate "2017.10.13"]
+[SourceQuality "1"]
+
+{[%evp 12,60,71,29,44,47,33,32,26,17,12,4,29,0,9,0,0,0,11,-46,-50,-85,-66,-134,
+-48,-62,-56,-108,30,34,29,39,56,12,54,-65,-62,-96,-16,-24,-24,-24,63,81,273,
+309,300,305,297,305,29999] C53: Giuoco Piano sidelines Source: Tartakower & du
+Mont, 500 Master Games of Chess, pp. 5-6. All comments are Tartakower's unless
+otherwise noted. The following game is a good example of how rooks should be
+handled. It shows that their work can be far more flexible than is generally
+supposed.} 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 d6 ({Combining development
+with a threat by} 4... Nf6 {is a more active procedure.}) 5. d4 exd4 6. cxd4
+Bb6 ({After} 6... Bb4+ {White would have the choice between} 7. Nc3 {(or even
+7.Kf1 threatening 8.d5 Ne5 followed by 9.Qa4+) Now, however, Black's Bishop at
+b6 continues to control the hostile centre.}) 7. d5 {Closing the centre and
+particularly the diagonal occupied by his Bishop at c4. But he hopes, in
+return, to obtain free play for his remaining pieces. The most intensive
+continuation is 7. Nc3. 7....} Ne5 ({A mistake would be} 7... Na5 {because of
+8.Bd3 with the threat 9.b4. 7.... Nce7}) ({And if} 7... Nce7 8. e5 {favours
+White's chances.}) 8. Nxe5 dxe5 9. Nc3 (9. O-O $145 Nf6 10. Nc3 O-O 11. h3 Ne8
+12. Qe2 Nd6 13. Bd3 f5 14. exf5 Bxf5 {Souleidis,G (2393)-Vishnu,P (2482)
+Llucmajor op 4th 2015 (7) 0-1}) 9... Nf6 ({Instead of this routine move,} 9...
+Qh4 {was a promising sortie because of the absence of a defending White knight.
+}) 10. Bg5 O-O $146 ({If, in order to relieve the pin as quickly as possible,
+Black plays} 10... h6 {White plays neither} 11. Bh4 ({but— as an effective
+intermediary manoeuvre--} 11. Bb5+ Bd7 12. Bxd7+ Qxd7 13. Bxf6 gxf6 14. Qf3 Qd6
+15. O-O {and White dominates the field.}) 11... g5 12. Bg3 Qe7 {etc., with an
+even game,}) 11. Qf3 Qd6 {This unpins the knight or, alternatively, achieves
+simplification;} ({more effective— with the same kind of idea—was} 11... h6
+12. Bxf6 Qxf6 13. Qxf6 gxf6 14. f4 Kh7 {preparing without delay for
+eventualities.}) 12. Bxf6 Qxf6 13. Qxf6 gxf6 {[#]} 14. g4 {White's 14th move
+is a fine conception, which combines defence (prevention of the liberating
+move 14....f5) with attack (breakthrough on the f-file. It is clear that Black
+cannot reply with 14....Bxg4 because of 15. Rg1 h5 16. h3! winning the bishop.
+14....} Kg7 {An impetuous player, McDonnell prepares an aggressive
+counter-action (18 .... h5), but 14 .... Kh8 would have been more level-headed.
+Other lines of defence would be 14 .... h6 or 14 .... Ba5, in order to
+eliminate a dangerous unit; but Black does not seem to fear his adversary's
+machinations.} 15. Ne2 Rh8 16. Rg1 Kf8 17. Rg2 {With the double mission of
+rendering the king mobile (by guarding the pawn on f2) and of doubling rooks
+on the critical file. 17....} Ke7 18. O-O-O h5 {See note to Black's 14th move.
+A sounder continuation would be 18....Bd7 to be followed by ....Rag8.} 19. g5
+f5 {A critical juncture. Again Black seems to underestimate his opponent's
+resources and to assess his own chances too highly. There was a complicated
+continuation as follows:} (19... fxg5 20. Rxg5 Bxf2 {(threatening 21.... Be3+),
+eg:} {A.} 21. Rxe5+ Kf6 {and Black wins. B. 21. Kd2 (to parry 21 .... Be3+),
+Bh4; overcoming the attack. C. 21. d6+ cxd6 22. Rg7 Be6 23. Bxe6 Kxe6 24. Rf1
+Be3+ 25. Kd1 Rac8; and Black has consolidated his position. D. 21. Rg7
+(threatening 22 d6+) Kf8 22. Rg2 Be3+ 23. Kc2 Rg8; putting his house in order.
+E. 21. Rg2 (the best continuation of the attack); 21.... Be3+ 22. Kc2, etc.,
+with even chances.}) 20. Nc3 Bc5 {Providing against the threat which has
+suddenly arisen: 21.d6+ cxd6 22.Nd5+} 21. g6 Bd6 22. gxf7 Kxf7 23. f4 {If 23.
+Rdg1 at once, Black plays 23....f4 barring the way. 23....} exf4 24. Rdg1 Kf8 (
+{Or} 24... Bd7 25. Rg7+ Ke8 26. e5 Bf8 (26... Bxe5 27. Re1) 27. R7g6 {and
+White has his own way.}) 25. Rg6 {Preparing the final onslaught which White
+conducts with great ability. 25....} f3 26. exf5 Be5 27. d6 {Reopening the
+diagonal, closed for the last 20 moves (7.d5), with overwhelming effect. 27....
+} cxd6 28. Rg8+ Rxg8 29. Rxg8+ Ke7 30. Nd5+ Kd7 31. Bb5# 1-0

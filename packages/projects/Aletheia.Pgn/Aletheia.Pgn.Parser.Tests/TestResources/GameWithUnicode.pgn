@@ -1,0 +1,37 @@
+[Event "Greco Analysis"]
+[Site "Europe"]
+[Date "1625.??.??"]
+[Round "?"]
+[White "Greco, Gioacchino"]
+[Black "Analysis\ Analyse"]
+[Result "1-0"]
+[ECO "C54"]
+[Annotator "ChessBase"]
+[PlyCount "37"]
+[EventDate "1625.??.??"]
+[EventType "game"]
+[EventCountry "ITA"]
+[SourceTitle "MainBase"]
+[Source "ChessBase"]
+[SourceDate "1999.07.01"]
+[SourceVersion "2"]
+[SourceVersionDate "1999.07.01"]
+[SourceQuality "1"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4 Bb4+ 7. Nc3 Nxe4 8.
+O-O Nxc3 9. bxc3 Bxc3 10. Qb3 {Greco invented free play with the pieces. Free
+pieces will win: free diagonals for the bishops, free files for the rooks!!
+Greco propagiert in seinen veröffentlichten Übungsbeispielen das Spiel mit den
+Figuren. Die Kraft der langschrittigen Läufer und Türme zu demonstrieren, lag
+ihm besonders am Herzen.} Bxa1 {Black is intent on winning by capturing more
+material.  Der Schwarze ist auf Beraubungssieg aus.} 11. Bxf7+ {White is
+aiming for mate. Der Weiße will matt setzten.} Kf8 12. Bg5 Ne7 13. Ne5 {
+[%csl Gf7]} Bxd4 {Black tries to capture as much as possible, and White tries
+to mate.} 14. Bg6 {[%csl Gf7] aha! If the king has not yet castled, the
+weakest square is always f7. Hat der König noch nicht rochiert, ist das
+schwächste Feld immer f7.} d5 {He is still defending.  Er wehrt sich noch.} 15.
+Qf3+ {No mate, but..} Bf5 16. Bxf5 Bxe5 17. Be6+ Bf6 18. Bxf6 Ke8 (18... gxf6
+19. Qxf6+ Ke8 20. Qf7#) 19. Bxg7 {Powerful bishops, discovered by Greco. This
+sample game is an impressive demonstration of the power of well developed
+bishops.  Dieses Übungsbeispiel demonstriert eindrucksvoll die Kraft der frei
+entfalteten Läufer.} 1-0

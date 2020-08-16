@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+        <PackageReference Include="xunit" Version="2.4.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+        <PackageReference Include="coverlet.collector" Version="1.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aletheia.Pgn\Aletheia.Pgn.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="ExampleGames\GameWithIllegalNullMoveIndicator.pgn" />
+      <EmbeddedResource Include="ExampleGames\JohnDavisBeatsSieica.pgn" />
+      <EmbeddedResource Include="ExampleGames\ShortLegalNullMoveGame.pgn" />
+      <EmbeddedResource Include="ExampleGames\GameWithNullComment.pgn" />
+      <None Remove="ExampleGames\GameWithCuratorComment.pgn" />
+      <EmbeddedResource Include="ExampleGames\GameWithCuratorComment.pgn" />
+    </ItemGroup>
+
+</Project>

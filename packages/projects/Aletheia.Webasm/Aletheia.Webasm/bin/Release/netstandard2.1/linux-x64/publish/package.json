@@ -1,0 +1,10 @@
+{
+  "name": "@chessdb.biz/artemis-webasm",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "./scripts/webasm-restore.sh",
+    "build": "./scripts/webasm-build.sh",
+    "clean": "./scripts/webasm-clean.sh"
+  }
+}

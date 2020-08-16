@@ -1,0 +1,14 @@
+[Event "Berlin Casual Games"]
+[Site "Berlin"]
+[Date "1839.05.25"]
+[Round "?"]
+[White "Bledow, Ludwig Erdmann"]
+[Black "Von Heydebrand und der Lasa, Tassilo"]
+[Result "1-0"]
+[ECO "C53"]
+[Annotator "Tartakower/du Mont"]
+[PlyCount "53"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Qe7 5. d4 Bb6 6. O-O d6 7. a4 a5
+(7... Z0 8. a5 Bxa5 9. Rxa5 $2 (9. d5 $18) 9... Nxa5 10. Qa4+ Nc6
+11. d5 a6 12. dxc6 b5 13. Bxb5 $1) 8. Be3 Nf6 $146} 1-0

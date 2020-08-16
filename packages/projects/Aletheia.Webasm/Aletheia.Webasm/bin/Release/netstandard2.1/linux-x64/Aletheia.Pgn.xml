@@ -1,0 +1,817 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aletheia.Pgn</name>
+    </assembly>
+    <members>
+        <member name="T:Aletheia.Pgn.CommonTagSet">
+            <summary>
+            A class with common values that many PGN games have.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.CommonTagSet.#ctor(System.Collections.Generic.Dictionary{System.String,Aletheia.Pgn.Model.GameTag})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.CommonTagSet" /> class.
+            </summary>
+            <param name="tags">The tag dictionary.</param>
+        </member>
+        <member name="T:Aletheia.Pgn.GameAssembler">
+            <summary>
+            Static class with methods related to assembling a <see cref="T:Aletheia.Pgn.Model.PgnGame"/> from
+            a tokenized (recently parsed) pgn game.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.GameAssembler.AssembleGameFromTokens(Aletheia.Pgn.Parser.Game.TokenizedPgnGame)">
+            <summary>
+            Create a <see cref="T:Aletheia.Pgn.Model.PgnGame" /> from a tokenized game hot off being parsed.
+            </summary>
+            <param name="tokenizedPgnGame">The just-parsed tokenized game.</param>
+            <returns>The assembled PgnGame object.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.GameAssembler.ParsePlies(System.Collections.Generic.IEnumerable{Aletheia.Pgn.Parser.Tokens.Token})">
+            <summary>
+            Parses a tokenized line.
+            </summary>
+            <param name="lineTokens">A collection of tokens from the body of a game, or
+            from a recursive line.</param>
+            <returns>The root game ply and the final result token.</returns>
+            <exception cref="T:Aletheia.Pgn.Model.PgnFormatException">Thrown if the content of a result token contained invalid data.</exception>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.Annotation">
+            <summary>
+            Marks that an annotator added some informative text to a ply.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.Annotation.Text">
+            <summary>
+            Gets or sets the text added by the annotator to the ply.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.GamePly">
+            <summary>
+            A single move made in a game.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.PlyNumber">
+            <summary>
+            Gets or sets the ply number.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.San">
+            <summary>
+            Gets or sets the San text.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.SanIsNullMove">
+            <summary>
+            Gets or sets a value indicating whether this move is actually a null move.
+            Null moves are determined at the low-level parsing interface, and can result
+            in a varied value for "San".
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.Annotations">
+            <summary>
+            Gets or sets a list of comments or annotations on the position.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.Nags">
+            <summary>
+            Gets or sets a list of Nags.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.PreviousPly">
+            <summary>
+            Gets or sets the previous ply (if any).
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.NextPlyInMainLine">
+            <summary>
+            Gets or sets the next ply played in the main line.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GamePly.AlternateNextMoves">
+            <summary>
+            Gets or sets a list of alternate moves.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.GameResult">
+            <summary>
+            The result of a game.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.GameResult.WhiteWins">
+            <summary>
+            White has won the game.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.GameResult.BlackWins">
+            <summary>
+            Black has won the game.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.GameResult.Draw">
+            <summary>
+            Draw.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.GameResult.Ongoing">
+            <summary>
+            The result is ongoing or unspecified.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.GameTag">
+            <summary>
+            Represents a tag key value pair found in the header of a PGN game string.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GameTag.Name">
+            <summary>
+            Gets or sets the name of this tag.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.GameTag.Value">
+            <summary>
+            Gets or sets the value of this tag as a string.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.PgnFormatException">
+            <summary>
+            An exception thrown when the format of the PGN text is not following the specification.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PgnFormatException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.Model.PgnFormatException"/> class.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PgnFormatException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.Model.PgnFormatException"/> class.
+            </summary>
+            <param name="message">A custom message to include in the exception.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PgnFormatException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.Model.PgnFormatException"/> class.
+            </summary>
+            <param name="message">A custom message to include in the exception.</param>
+            <param name="inner">An inner exception.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PgnFormatException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.Model.PgnFormatException"/> class.
+            </summary>
+            <param name="info">Information about the serialization process.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.PgnGame">
+            <summary>
+            Represents a PGN game.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PgnGame.AllTags">
+            <summary>
+            Gets or sets the dictionary of tags.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PgnGame.FirstPly">
+            <summary>
+            Gets or sets the first ply.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PgnGame.MainLineAsList">
+            <summary>
+            Gets the main line of the game as a list of plies,
+            which is easier for some access patterns than the tree
+            structure.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PgnGame.WhitePlayer">
+            <summary>
+            Gets the player information for the player with the white pieces.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PgnGame.BlackPlayer">
+            <summary>
+            Gets the player information for the player with the black pieces.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.Player">
+            <summary>
+            A small class storing information about one of the players.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.Player.Name">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.Player.Rating">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.Player.Title">
+            <summary>
+            Gets or sets the name of the player.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.PlyNag">
+            <summary>
+            A symbolic attribute applied to a ply in a game
+            the denotes an objective or subjective observation
+            about the evaluation of the position.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PlyNag.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.Model.PlyNag"/> struct.
+            </summary>
+            <param name="numericalValue">The numerical value of this Nag.</param>
+            <param name="symbol">The symbol, if any, to use in the San notation.</param>
+            <param name="description">The description of the meaning of this Nag.</param>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PlyNag.NumericalValue">
+            <summary>
+            Gets the numerical value of this nag.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PlyNag.Description">
+            <summary>
+            Gets the description of the meaning of this nag.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PlyNag.Symbol">
+            <summary>
+            Gets the symbol for this nag, if any.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PlyNag.op_Equality(Aletheia.Pgn.Model.PlyNag,Aletheia.Pgn.Model.PlyNag)">
+            <summary>
+            Determines if two nags are not equal.
+            </summary>
+            <param name="n1">The first nag in the equality check.</param>
+            <param name="n2">The second nag in the equality check.</param>
+            <returns>A value indicating whether or not the two nags are equal.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PlyNag.op_Inequality(Aletheia.Pgn.Model.PlyNag,Aletheia.Pgn.Model.PlyNag)">
+            <summary>
+            Determines if two nags are not equal.
+            </summary>
+            <param name="n1">The first nag in the negative equality check.</param>
+            <param name="n2">The second nag in the negative equality check.</param>
+            <returns>A value indicating whether or not the two nags are not equal.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PlyNag.Equals(System.Object)">
+            <summary>
+            Checks of the specified object is equal to this instance.
+            </summary>
+            <param name="obj">The object to compare to this instance.</param>
+            <returns>A value indicating whether or not the specified object is equal to this current instance.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.PlyNag.GetHashCode">
+            <summary>
+            Gets the hash code of this PlyNag.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.PlyNags">
+            <summary>
+            A collection of common Nags to use.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.ResultExtensions">
+            <summary>
+            Static class with extension methods for
+            <see cref="T:Aletheia.Pgn.Model.GameResult"/> and <see cref="T:Aletheia.Pgn.Model.ResultReason"/>.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.ResultExtensions.ToResultReasonString(Aletheia.Pgn.Model.ResultReason)">
+            <summary>
+            Try to convert the string to a <see cref="T:Aletheia.Pgn.Model.ResultReason"/>.
+            </summary>
+            <param name="resultReason">The result reason enum value.</param>
+            <returns>The string value for the <see cref="T:Aletheia.Pgn.Model.ResultReason"/>.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.ResultExtensions.AsResultReason(System.String)">
+            <summary>
+            Try to convert the string to a <see cref="T:Aletheia.Pgn.Model.ResultReason"/>.
+            </summary>
+            <param name="resultReasonString">The result reason string.</param>
+            <returns>The <see cref="T:Aletheia.Pgn.Model.ResultReason"/> enum value.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.ResultExtensions.ToResultReasonString(Aletheia.Pgn.Model.GameResult)">
+            <summary>
+            Gets the string representation of a <see cref="T:Aletheia.Pgn.Model.GameResult" />.
+            </summary>
+            <param name="gameResult">The game result.</param>
+            <returns>The string value of the <see cref="T:Aletheia.Pgn.Model.GameResult"/>.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.ResultExtensions.AsResult(System.String)">
+            <summary>
+            Gets the value of a string as a <see cref="T:Aletheia.Pgn.Model.GameResult" />.
+            </summary>
+            <param name="resultString">The result string.</param>
+            <returns>The <see cref="T:Aletheia.Pgn.Model.GameResult"/> enum value.</returns>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.ResultReason">
+            <summary>
+            The reason for a given result.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.Abandoned">
+            <summary>
+            Indicates the game result was due to abandonment
+            by one or more of the players.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.Adjudication">
+            <summary>
+            Indicates the result was decided by adjudication.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.Death">
+            <summary>
+            One of the players died.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.Emergency">
+            <summary>
+            An emergency affected the result of the game.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.Normal">
+            <summary>
+            The result was normal.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.RulesInfraction">
+            <summary>
+            One or both of the players committed a rules
+            infraction.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.TimeForfeit">
+            <summary>
+            A player ran out of time.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.ResultReason.Unterminated">
+            <summary>
+            The game has not finished.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TagExtensions">
+            <summary>
+            Static class with extension methods for tags.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.ValueAsInt(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of this tag as an integer, if possible.
+            </summary>
+            <param name="gameTag">The game tag to get the integer value of.</param>
+            <returns>The <see cref="T:System.Int32"/> value of this tag.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetIntValue(Aletheia.Pgn.Model.GameTag,System.Int32)">
+            <summary>
+            Sets the value of this tag as an integer.
+            </summary>
+            <param name="gameTag">The game tag to get the integer value of.</param>
+            <param name="integerValue">The <see cref="T:System.Int32"/> value of this tag.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.ValueAsDouble(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of this tag as an double, if possible.
+            </summary>
+            <param name="gameTag">The game tag to get the integer value of.</param>
+            <returns>The <see cref="T:System.Double"/> value of this tag.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetDoubleValue(Aletheia.Pgn.Model.GameTag,System.Double)">
+            <summary>
+            Sets the value of this tag as a double.
+            </summary>
+            <param name="gameTag">The <see cref="T:Aletheia.Pgn.Model.GameTag"/>.</param>
+            <param name="doubleValue">The <see cref="T:System.Double"/> value of this tag.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.AsDateValue(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of this tag as an double, if possible.
+            </summary>
+            <param name="gameTag">The <see cref="T:Aletheia.Pgn.Model.GameTag"/>.</param>
+            <returns>The <see cref="T:System.DateTime"/> value of this tag.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetDateValue(Aletheia.Pgn.Model.GameTag,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the value of this tag to a Date value.
+            </summary>
+            <param name="gameTag">The <see cref="T:Aletheia.Pgn.Model.GameTag"/>.</param>
+            <param name="year">The year when this game was played.</param>
+            <param name="month">The month when this game was played.</param>
+            <param name="day">The day when this game was played.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetDateValue(Aletheia.Pgn.Model.GameTag,System.DateTime)">
+            <summary>
+            Sets the value of this tag to a Date value.
+            </summary>
+            <param name="gameTag">The <see cref="T:Aletheia.Pgn.Model.GameTag"/>.</param>
+            <param name="date">The date.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.AsDateTime(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of this tag as an double, if possible.
+            </summary>
+            <param name="gameTag">The <see cref="T:Aletheia.Pgn.Model.GameTag"/>.</param>
+            <returns>The <see cref="T:System.DateTime"/> value of this tag.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetDateTimeValue(Aletheia.Pgn.Model.GameTag,System.DateTime)">
+            <summary>
+            Sets the value of this tag as a double.
+            </summary>
+            <param name="gameTag">The <see cref="T:Aletheia.Pgn.Model.GameTag"/>.</param>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> value of this tag.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.AsResultReason(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of a tag in the format of a <see cref="T:Aletheia.Pgn.Model.ResultReason" />.
+            </summary>
+            <param name="gameTag">The tag.</param>
+            <returns>The value of the tag as a result reason.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetResultReasonValue(Aletheia.Pgn.Model.GameTag,Aletheia.Pgn.Model.ResultReason)">
+            <summary>
+            Gets the value of a tag in the format of a <see cref="T:Aletheia.Pgn.Model.ResultReason" />.
+            </summary>
+            <param name="gameTag">The tag.</param>
+            <param name="reason">The result reason.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.AsResult(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of a tag in the format of a <see cref="T:Aletheia.Pgn.Model.ResultReason" />.
+            </summary>
+            <param name="gameTag">The tag.</param>
+            <returns>The value of the tag as a result reason.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetResultValue(Aletheia.Pgn.Model.GameTag,Aletheia.Pgn.Model.GameResult)">
+            <summary>
+            Sets the value of a tag in the format of a <see cref="T:Aletheia.Pgn.Model.ResultReason" />.
+            </summary>
+            <param name="gameTag">The tag.</param>
+            <param name="result">The result.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.AsTimeControl(Aletheia.Pgn.Model.GameTag)">
+            <summary>
+            Gets the value of a tag in the format of a <see cref="T:Aletheia.Pgn.Model.ResultReason" />.
+            </summary>
+            <param name="gameTag">The tag.</param>
+            <returns>The value of the tag as a result reason.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TagExtensions.SetTimeControlValue(Aletheia.Pgn.Model.GameTag,Aletheia.Pgn.Model.TimeControls.GameTimeControl)">
+            <summary>
+            Sets the value of a tag in the format of a <see cref="T:Aletheia.Pgn.Model.ResultReason" />.
+            </summary>
+            <param name="gameTag">The tag.</param>
+            <param name="timeControl">The result.</param>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControl">
+            <summary>
+            A (potentially) compound time control.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControl.Parts">
+            <summary>
+            Gets or sets the list of time control parts that make up this game's time control.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart">
+            <summary>
+            A single component of an extended time control.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart.WhiteTimeSeconds">
+            <summary>
+            Gets or sets the amount of time white starts with for this part.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart.WhiteExtraTimeSeconds">
+            <summary>
+            Gets or sets the amount of extra time white receives, in seconds.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart.WhiteExtraTimeFormat">
+            <summary>
+            Gets or sets the way that extra time is added to the white player's clock.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart.BlackTimeSeconds">
+            <summary>
+            Gets or sets the amount of time black starts with for this part.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart.BlackExtraTimeSeconds">
+            <summary>
+            Gets or sets the amount of extra time black receives, in seconds.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.Extended.ExtendedTimeControlPart.BlackExtraTimeFormat">
+            <summary>
+            Gets or sets the way that extra time is added to the black player's clock.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.Extended.ExtraTimeFormat">
+            <summary>
+            Several variations on how extra time is given to the player.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.Extended.ExtraTimeFormat.Increment">
+            <summary>
+            A format where the extra time is added to the player's clock at the beginning of the move.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.Extended.ExtraTimeFormat.SimpleDelay">
+            <summary>
+            A format where the clock will seem to pause for the extra time seconds before resuming, giving
+            the player at least <code>x</code> seconds, but the player cannot accumulate time.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.Extended.ExtraTimeFormat.BronsteinDelay">
+            <summary>
+            A little more nuanced, here's a quote from <a href="https://en.wikipedia.org/wiki/Chess_clock#Timing_methods">Wikipedia's description on time controls</a>:
+            <code>
+            Bronstein delay and Simple delay are mathematically equivalent. The advantage of Bronstein delay is that a player can always quickly see exactly how much time they have for their next move without having to mentally add the main and delay time. The advantage of Simple delay is that a player can always tell whether the time that is counting down is the delay time or the main time. Simple delay is the form of delay most often used in the US, while Bronstein delay is the form of delay most often used in most other countries.
+            </code>
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.GameTimeControl">
+            <summary>
+            A time control for a PGN game.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.GameTimeControl.TimeControlParts">
+            <summary>
+            Gets or sets the time control parts that comprise the
+            game time control as given by the traditional PGN 'TimeControl'
+            tag.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.GameTimeControl.ExtendedTimeControlParts">
+            <summary>
+            Gets or sets the list of extended time control parts.
+            The extended time control components are not part of the
+            PGN standard, but are simpler and more flexible to reflect
+            real-world and online time controls in use today.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.HourglassTimeControlPart">
+            <summary>
+            The time control uses an hourglass, where time
+            is drained from one player while being added to
+            another player.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.HourglassTimeControlPart.Type">
+            <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.HourglassTimeControlPart.TotalDuration">
+            <summary>
+            Gets or sets the duration of the hourglass from the halfway point
+            to tipping in complete favor with one side.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.IncrementalTimeControlPart">
+            <summary>
+            A time control with extra time.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.IncrementalTimeControlPart.Type">
+            <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.IncrementalTimeControlPart.TotalDuration">
+            <summary>
+            Gets or sets the duration of the time control.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.IncrementalTimeControlPart.IncrementSeconds">
+            <summary>
+            Gets or sets the extra time each player receives per turn.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.PeriodTimeControlPart">
+            <summary>
+            A time control with a set number of moves.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.PeriodTimeControlPart.Type">
+            <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.PeriodTimeControlPart.Moves">
+            <summary>
+            Gets or sets the number of moves this time control period lasts for.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.PeriodTimeControlPart.PeriodDuration">
+            <summary>
+            Gets or sets the total duration of this time control period.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.SuddenDeathTimeControlPart">
+            <summary>
+            The time control has no increment.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.SuddenDeathTimeControlPart.Type">
+            <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.SuddenDeathTimeControlPart.TotalDuration">
+            <summary>
+            Gets or sets the duration of this time control.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.TimeControlConverters">
+            <summary>
+            Static class with methods for converting to and from
+            the time control types.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TimeControls.TimeControlConverters.TimeControlFromTimeControlString(System.String)">
+            <summary>
+            Convert a string to a TimeControl object.
+            </summary>
+            <param name="timeControlString">The time control string.</param>
+            <returns>The time control object.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TimeControls.TimeControlConverters.ToStandardTimeControlString(Aletheia.Pgn.Model.TimeControls.GameTimeControl)">
+            <summary>
+            Convert a string to a TimeControl object.
+            </summary>
+            <param name="timeControl">The time control object.</param>
+            <returns>The standardized PGN time control string.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TimeControls.TimeControlConverters.DescriptorToTimeControlPart(Aletheia.Pgn.Parser.TimeControl.TimeControlDescriptor)">
+            <summary>
+            Convert a single time control descriptor into a time control part.
+            </summary>
+            <param name="descriptor">The time control descriptor.</param>
+            <returns>The time control part.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.Model.TimeControls.TimeControlConverters.TimeControlPartToTimeControlString(Aletheia.Pgn.Model.TimeControls.TimeControlPart)">
+            <summary>
+            Convert a single time control part into its string representation.
+            </summary>
+            <param name="part">The time control part.</param>
+            <returns>The string representation of the time control part.</returns>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart">
+            <summary>
+            A base class for time control parts.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.TimeControlPart.Type">
+            <summary>
+            Gets the type of time control that this portion of the time control is.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.TimeControlPartType">
+            <summary>
+            The different variations on Chess time controls
+            that compose a game's time control.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.TimeControlPartType.Unknown">
+            <summary>
+            The time control was not specified.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.TimeControlPartType.Untimed">
+            <summary>
+            The game was un-timed.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.TimeControlPartType.Incremental">
+            <summary>
+            The time control includes increment time.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.TimeControlPartType.SuddenDeath">
+            <summary>
+            The time control has no increment.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.TimeControlPartType.Period">
+            <summary>
+            The time control comes with a set number of moves.
+            </summary>
+        </member>
+        <member name="F:Aletheia.Pgn.Model.TimeControls.TimeControlPartType.Hourglass">
+            <summary>
+            The time control uses an hourglass, where time
+            is drained from one player while being added to
+            another player.
+            </summary>
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.UnknownTimeControlPart">
+            <summary>
+            A time control part that was unspecified in the PGN.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.UnknownTimeControlPart.Type">
+            <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
+        </member>
+        <member name="T:Aletheia.Pgn.Model.TimeControls.UntimedTimeControlPart">
+            <summary>
+            A time control for un-timed games.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.TimeControls.UntimedTimeControlPart.Type">
+            <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
+        </member>
+        <member name="T:Aletheia.Pgn.PgnGameParser">
+            <summary>
+            A class that interops with the F# library that does the heavy lifting
+            to parse a PGN Chess game.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.PgnGameParser.Configuration">
+            <summary>
+            Gets or sets the configuration to use when parsing the PGN text.
+            Options such as the character set for pieces in SAN or FAN notation
+            can be set through this configuration.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameParser.ParseGame(System.String)">
+            <summary>
+            Parse a string into a PGN Chess game.
+            </summary>
+            <param name="pgnText">The text of the game.</param>
+            <returns>The parsed game.</returns>
+        </member>
+        <member name="T:Aletheia.Pgn.PgnGameStream">
+            <summary>
+            A class to read multiple PGN games from a <see cref="T:System.IO.StreamReader"/>-esque interface.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.PgnGameStream"/> class.
+            </summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.#ctor(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.PgnGameStream"/> class.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="encoding">The encoding of the text in the stream.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.PgnGameStream"/> class.
+            </summary>
+            <param name="file">The file to read from.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.#ctor(System.String,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aletheia.Pgn.PgnGameStream"/> class.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="encoding">The encoding of the text in the stream.</param>
+        </member>
+        <member name="P:Aletheia.Pgn.PgnGameStream.EndOfStream">
+            <summary>
+            Gets a value indicating whether the stream is at its end.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.PgnGameStream.LastAttemptedParseContent">
+            <summary>
+            Gets or sets the last parse attempt content.
+            </summary>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.ParseNextGame">
+            <summary>
+            Parses the next game in the stream.
+            </summary>
+            <returns>The parsed game.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.ParseRemainingGames">
+            <summary>
+            Parses all the games left in the stream.
+            </summary>
+            <returns>The list of remaining games.</returns>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.Dispose">
+            <inheritdoc cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.DumpRemainingToFile(System.String)">
+            <summary>
+            Dumps all the remaining games to a file.
+            </summary>
+            <param name="file">The file to dump games to.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.Dispose(System.Boolean)">
+            <summary>
+            Disposes the stream reader object.
+            </summary>
+            <param name="disposing">True if we're being called from the dispose method (vs the finalizer).</param>
+        </member>
+    </members>
+</doc>

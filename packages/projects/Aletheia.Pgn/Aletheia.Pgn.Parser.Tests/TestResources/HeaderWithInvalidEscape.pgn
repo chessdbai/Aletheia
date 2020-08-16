@@ -1,0 +1,2 @@
+[Event "This is \$not a valid escape, so it should be ignored"]
+[Event "This is \ "]

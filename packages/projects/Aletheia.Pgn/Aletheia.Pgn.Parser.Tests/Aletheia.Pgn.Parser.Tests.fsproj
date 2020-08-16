@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <LangVersion>preview</LangVersion>
+        <IsPackable>false</IsPackable>
+        <GenerateProgramFile>false</GenerateProgramFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="TestResources.fs" />
+        <Compile Include="CommentsTests.fs" />
+        <Compile Include="HeaderTests.fs" />
+        <EmbeddedResource Include="TestResources\SimpleHeader.pgn" />
+        <EmbeddedResource Include="TestResources\SingleHeader.pgn" />
+        <EmbeddedResource Include="TestResources\HeaderWithEscapes.pgn" />
+        <EmbeddedResource Include="TestResources\SimpleNoBranchingGame.pgn" />
+        <EmbeddedResource Include="TestResources\GameWithUnicode.pgn" />
+        <EmbeddedResource Include="TestResources\HeaderWithInvalidEscape.pgn" />
+        <EmbeddedResource Include="TestResources\ChessBaseGameWithHeavyCustomTokens.pgn" />
+        <EmbeddedResource Include="TestResources\GameWithWeirdPartialComments.pgn" />
+        <Compile Include="TokenTests.fs" />
+        <Compile Include="GameTests.fs" />
+        <Compile Include="TimeControlTests.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+        <PackageReference Include="xunit" Version="2.4.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+        <PackageReference Include="coverlet.collector" Version="1.0.1" />
+        <PackageReference Include="JUnitTestLogger" Version="1.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aletheia.Pgn.Parser\Aletheia.Pgn.Parser.fsproj" />
+    </ItemGroup>
+
+</Project>

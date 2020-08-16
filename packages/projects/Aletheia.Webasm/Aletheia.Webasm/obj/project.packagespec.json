@@ -1,0 +1,78 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/Aletheia.Webasm.csproj",
+    "projectName": "Aletheia.Webasm",
+    "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/Aletheia.Webasm.csproj",
+    "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netstandard2.1"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {},
+      "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "projectReferences": {
+          "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj": {
+            "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netstandard2.1": {
+      "dependencies": {
+        "Microsoft.AspNetCore.Blazor": {
+          "target": "Package",
+          "version": "[3.1.0-preview4.19579.2, )"
+        },
+        "Microsoft.AspNetCore.Blazor.Build": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[3.1.0-preview4.19579.2, )"
+        },
+        "Microsoft.AspNetCore.Blazor.DevServer": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[3.1.0-preview4.19579.2, )"
+        },
+        "Microsoft.AspNetCore.Blazor.HttpClient": {
+          "target": "Package",
+          "version": "[3.1.0-preview4.19579.2, )"
+        },
+        "Newtonsoft.Json": {
+          "target": "Package",
+          "version": "[12.0.3, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "NETStandard.Library": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+    }
+  }
+}

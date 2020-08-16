@@ -1,0 +1,12 @@
+{
+  "name": "@chessdb.biz/aletheia",
+  "version": "0.0.1-alpha",
+  "description": "Monorepo package with the Alethia Chess Logic, PGN and FEN parsers, and library support for the Aletheia logic scripting language.\"",
+  "main": "index.js",
+  "author": "John Davis",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

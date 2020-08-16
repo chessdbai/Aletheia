@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/Aletheia.Webasm.csproj": {}
+  },
+  "projects": {
+    "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj",
+        "projectName": "Aletheia.Pgn.Parser",
+        "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj",
+        "packagesPath": "/Users/john/.nuget/packages/",
+        "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/john/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1",
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          },
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "FParsec": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            },
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.1": {
+          "dependencies": {
+            "FParsec": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            },
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj",
+        "projectName": "Aletheia.Pgn",
+        "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj",
+        "packagesPath": "/Users/john/.nuget/packages/",
+        "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/john/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1",
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj": {
+                "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj"
+              }
+            }
+          },
+          "netstandard2.1": {
+            "projectReferences": {
+              "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj": {
+                "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.1": {
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/Aletheia.Webasm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/Aletheia.Webasm.csproj",
+        "projectName": "Aletheia.Webasm",
+        "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/Aletheia.Webasm.csproj",
+        "packagesPath": "/Users/john/.nuget/packages/",
+        "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/john/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj": {
+                "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Blazor": {
+              "target": "Package",
+              "version": "[3.1.0-preview4.19579.2, )"
+            },
+            "Microsoft.AspNetCore.Blazor.Build": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0-preview4.19579.2, )"
+            },
+            "Microsoft.AspNetCore.Blazor.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0-preview4.19579.2, )"
+            },
+            "Microsoft.AspNetCore.Blazor.HttpClient": {
+              "target": "Package",
+              "version": "[3.1.0-preview4.19579.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

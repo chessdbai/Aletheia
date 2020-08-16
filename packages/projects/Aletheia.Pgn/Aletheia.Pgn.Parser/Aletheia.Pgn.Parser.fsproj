@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <Target Name="FSharpLint" AfterTargets="BeforeBuild">
+        <Exec Command="dotnet tool run dotnet-fsharplint -f msbuild lint $(MSBuildProjectFullPath)" IgnoreExitCode="false" />
+    </Target>
+
+    <ItemGroup>
+        <Compile Include="Notation.fs" />
+        <Compile Include="Configuration.fs" />
+        <Compile Include="Comments.fs" />
+        <Compile Include="Header.fs" />
+        <Compile Include="Tokens.fs" />
+        <Compile Include="AssemblyInfo.fs" />
+        <Compile Include="Game.fs" />
+        <Compile Include="TimeControl.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FParsec" Version="1.1.1" />
+    </ItemGroup>
+
+</Project>

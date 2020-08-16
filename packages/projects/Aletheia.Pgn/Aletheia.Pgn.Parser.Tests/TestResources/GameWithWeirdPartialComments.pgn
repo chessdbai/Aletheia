@@ -1,0 +1,52 @@
+[Event "Berlin Casual Games"]
+[Site "Berlin"]
+[Date "1839.05.25"]
+[Round "?"]
+[White "Bledow, Ludwig Erdmann"]
+[Black "Von Heydebrand und der Lasa, Tassilo"]
+[Result "1-0"]
+[ECO "C53"]
+[Annotator "Tartakower/du Mont"]
+[PlyCount "53"]
+[EventDate "1839.??.??"]
+[EventType "game"]
+[EventCountry "GER"]
+[SourceTitle "EXT 1999"]
+[Source "ChessBase"]
+[SourceDate "1998.11.16"]
+[SourceVersion "1"]
+[SourceVersionDate "1998.11.16"]
+[SourceQuality "1"]
+
+{[%evp 13,53,72,94,36,68,70,77,56,62,59,58,39,50,41,49,-85,-94,-127,-127,-250,
+-255,-218,-240,-398,-279,-252,-231,-268,343,343,321,312,287,258,1056,1056,1056,
+1056,1006,1006,1166,1159] C53: Giuoco Piano sidelines Source: Tartakower & du
+Mont, 500 Master Games of Chess, p. 1. All comments are Tartakower's unless
+otherwise noted.} {Morphy's great principles—the formation of a pawn centre,
+the most rapid development of the pieces (even at the cost of material), the
+opening up of lines of attack, the deadly effect of an advanced pawn—all are
+already In evidence in the following old-time game.} 1. e4 e5 2. Nf3 Nc6 3. Bc4
+Bc5 4. c3 {With the idea—known and appreciated ever since chess was
+played—of establishing a pawn centre by e4.} {4....} Qe7 {One of the
+earliest defences.} 5. d4 Bb6 {A complement of his last move. Black evidently
+wishes to maintain a hold on e5.} ({If he abandons the centre by} 5... exd4 {
+White plays} 6. O-O {and his pressure, at the expense of a pawn} dxc3 7. Nxc3 {
+would become irksome.}) 6. O-O d6 7. a4 a5 ({White's flank attack at a4
+already threatens to win a piece by} 7... Z0 8. a5 Bxa5 9. Rxa5 $2 (9. d5 $18)
+9... Nxa5 10. Qa4+ Nc6 11. d5 a6 12. dxc6 b5 13. Bxb5 $1) 8. Be3 Nf6 $146 ({
+Here the gain of a pawn by} 8... exd4 9. cxd4 Qxe4 {would be refuted by} 10.
+Re1 {with a winning frontal attack.}) 9. dxe5 ({It is also feasible to
+maintain the tension in the centre by} 9. Nbd2) 9... Nxe5 10. Nxe5 dxe5 11.
+Bxb6 cxb6 12. Nd2 O-O 13. Qe2 Bd7 ({Instead of seeking simplification by} 13...
+Be6 {Black pursues more ambitious plans.}) 14. Rad1 {Disregarding the loss of
+a pawn, White speeds up his development. 14....} Bxa4 15. b3 Bc6 16. f4 {
+The opening of the f-file is important. 16....} Rad8 17. fxe5 Qxe5 18. Rf5 Qd6
+({Or} 18... Qe7 19. e5 b5 20. Ne4 {and White's pressure is more effective
+still.}) 19. e5 Qc5+ 20. Kh1 Ne4 ({Black's hope of obtaining relief by
+exchanges is doomed to disappointment. But if} 20... Nd5 21. e6) ({and if}
+20... Nd7) ({or} 20... Rde8 21. Rdf1 $1 {and in any case White has the
+advantage.}) 21. Nxe4 $18 Rxd1+ 22. Qxd1 Bxe4 {Hoping to drive away the
+bellicose rook. More interesting is the ensuing drama which unfolds round the
+sensitive point f7.[#]} 23. Rxf7 Rxf7 24. Qd8+ Qf8 25. Bxf7+ Kxf7 26. e6+ {
+[%cal Be5e6,Be6e7]} Kxe6 27. Qxf8 $18 {Black Resigns. The mobility of this
+pawn has played the decisive rôle in the attack.} 1-0

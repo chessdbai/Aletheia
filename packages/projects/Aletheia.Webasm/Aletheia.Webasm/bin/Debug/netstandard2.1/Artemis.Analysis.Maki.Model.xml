@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Artemis.Analysis.Maki.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Artemis.Analysis.Maki.Model.ClockState">
+            <summary>
+            A data structure containing information about the time control
+            and state of the clock.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.ClockState.WhiteTime">
+            <summary>
+            Gets or sets the amount of time white has on the clock.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.ClockState.BlackTime">
+            <summary>
+            Gets or sets the amount of time black has on the clock.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.ClockState.WhiteIncrement">
+            <summary>
+            Gets or sets the additional time (increment) white receives
+            after each move.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.ClockState.BlackIncrement">
+            <summary>
+            Gets or sets the additional time (increment) black receives
+            after each move.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.ClockState.MovesToGo">
+            <summary>
+            Gets or sets the number of moves remaining until
+            the next time control.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.CompletionCriteria">
+            <summary>
+            A class with data that tells the engine when it has reached
+            the end of the requested evaluation session.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.CompletionCriteria.PonderTime">
+            <summary>
+            Gets or sets the max time to calculate for.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.CompletionCriteria.MaxDepth">
+            <summary>
+            Gets or sets the max depth.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.CompletionCriteria.Mate">
+            <summary>
+            Gets or sets the maximum number of moves to look for mate.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.CompletionCriteria.MaxNodes">
+            <summary>
+            Gets or sets the maximum number of nodes to search.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.CompletionCriteria.Infinite">
+            <summary>
+            Gets or sets a value indicating whether the analysis should be infinite.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.EngineOutputSegment">
+            <summary>
+            A parsed, single piece of output from the engine.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EngineOutputSegment.Output">
+            <summary>
+            Gets or sets the raw output string.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EngineOutputSegment.Error">
+            <summary>
+            Gets or sets the raw error string.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EngineOutputSegment.Line">
+            <summary>
+            Gets or sets the parse evaluated line.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EngineOutputSegment.BestLines">
+            <summary>
+            Gets or sets the best lines.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EngineOutputSegment.Result">
+            <summary>
+            Gets or sets the result. Only used when engine reports that it found
+            the best move in a given situation (noted by the 'bestmove' UCI keyword).
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.EvaluatedLine">
+            <summary>
+            A series of chess moves parsed by the engine and including an evaluation.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatedLine.LineSan">
+            <summary>
+            Gets or sets the SAN line text.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatedLine.LineUci">
+            <summary>
+            Gets or sets the UCI line text.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatedLine.LineRank">
+            <summary>
+            Gets or sets the rank of this line compared with other lines,
+            if multiple lines were requested.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatedLine.Depth">
+            <summary>
+            Gets or sets the depth of this line.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatedLine.Evaluation">
+            <summary>
+            Gets or sets the evaluation of this line.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.EvaluatedLine.ToString">
+            <summary>
+            Converts this line into a string representation.
+            </summary>
+            <returns>The string representation of this line.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.EvaluatePositionResult">
+            <summary>
+            A class storing the final evaluation and series of
+            moves according to the engine.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatePositionResult.StartingPosition">
+            <summary>
+            Gets or sets the starting position.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatePositionResult.MaxDepth">
+            <summary>
+            Gets the max depth.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluatePositionResult.Lines">
+            <summary>
+            Gets or sets all the lines, if multiple lines were requested with
+            the UCI option MultiPV.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.EvaluationScore">
+            <summary>
+            A class collecting the different types of evaluations returnable by the engine.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluationScore.MovesUntilMate">
+            <summary>
+            Gets or sets the number of moves until mate.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluationScore.Centipawns">
+            <summary>
+            Gets or sets the centipawn eval of the position.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.EvaluationScore.DecimalScore">
+            <summary>
+            Gets the centipawn eval as a decimal.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.EvaluationScore.ToString">
+            <summary>
+            Returns a string representation of this evaluation.
+            </summary>
+            <returns>The string representation.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.GetEngineIdResponse">
+            <summary>
+            A response to the GetEngineId API call.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.GetEngineIdResponse.Name">
+            <summary>
+            Gets or sets the engine name.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.GetEngineIdResponse.Author">
+            <summary>
+            Gets or sets the engine Author.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.ListSupportedOptionsResponse">
+            <summary>
+            The response from the ListSupportedOptions API call.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.ListSupportedOptionsResponse.Options">
+            <summary>
+            Gets or sets the list of options the engine supports.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.MalformedStartingPositionException">
+            <summary>
+            An error indicating that evaluation failed because the provided starting
+            position was not valid, or was missing.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.MalformedStartingPositionException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Maki.Model.MalformedStartingPositionException"/> class
+            with the default message.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.MalformedStartingPositionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Maki.Model.MalformedStartingPositionException"/> class.
+            </summary>
+            <param name="message">The error message to use.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.MalformedStartingPositionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Maki.Model.MalformedStartingPositionException"/> class.
+            </summary>
+            <param name="message">The error message to use.</param>
+            <param name="inner">The inner exception to use.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.MalformedStartingPositionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Maki.Model.MalformedStartingPositionException"/> class.
+            </summary>
+            <param name="info">The serialization information.</param>
+            <param name="context">The streaming context.</param>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.MoveFilter">
+            <summary>
+            An object storing a move in either SAN or UCI notation
+            used to restrict the engine's search in the start position.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.MoveFilter.SAN">
+            <summary>
+            Gets or sets the move in <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">SAN notation</a>.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.MoveFilter.UCI">
+            <summary>
+            Gets or sets the move in <a href="https://en.wikipedia.org/wiki/Universal_Chess_Interface">UCI move notation</a>.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.Options.EngineOption">
+            <summary>
+            An option that can be configured to
+            adjust engine evaluation behavior.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Options.EngineOption.Name">
+            <summary>
+            Gets or sets the name of the option.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Options.EngineOption.Type">
+            <summary>
+            Gets or sets the type of option this is.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Options.EngineOption.Minimum">
+            <summary>
+            Gets or sets the upper bound of the options.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Options.EngineOption.Maximum">
+            <summary>
+            Gets or sets the lower bound of the option.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Options.EngineOption.DefaultValue">
+            <summary>
+            Gets or sets the default value.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Options.EngineOption.ValidValues">
+            <summary>
+            Gets or sets the list of valid values.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.Options.OptionType">
+            <summary>
+            The different types of options.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Maki.Model.Options.OptionType.Boolean">
+            <summary>
+            A UCI option that has a value of either true or false.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Maki.Model.Options.OptionType.NumberRange">
+            <summary>
+            A UCI option that is a free-form number
+            within an upper bound and/or lower bound.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Maki.Model.Options.OptionType.MultipleChoice">
+            <summary>
+            A UCI option with a enumerated set of valid
+            options to choose from.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Maki.Model.Options.OptionType.Button">
+            <summary>
+            A UCI option that can trigger a command to be
+            sent to the engine.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Maki.Model.Options.OptionType.Text">
+            <summary>
+            A free-form string option.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.OptionValue">
+            <summary>
+            An engine option name and value to set.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.OptionValue.TextValue">
+            <summary>
+            Gets or sets the text value of the option.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.OptionValue.BooleanValue">
+            <summary>
+            Gets or sets the boolean value of the option.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.OptionValue.IntegerValue">
+            <summary>
+            Gets or sets the integer value of the option.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.Serialization.TimeSpanConverter">
+            <summary>
+            A custom Json converter for nullable TimeSpans.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.Serialization.TimeSpanConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Nullable{System.TimeSpan},Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes a JSON value from a nullable time span.
+            </summary>
+            <param name="writer">The JSON writer.</param>
+            <param name="value">The nullable TimeSpan value.</param>
+            <param name="serializer">The serializer.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.Serialization.TimeSpanConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Nullable{System.TimeSpan},System.Boolean,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Attempts to read a nullable TimeSpan from a reader.
+            </summary>
+            <param name="reader">The JSON reader.</param>
+            <param name="objectType">The type of object.</param>
+            <param name="existingValue">The existing value, if any.</param>
+            <param name="hasExistingValue">A value indicating whether or not there is an existing value.</param>
+            <param name="serializer">The serializer.</param>
+            <returns>The nullable timespan.</returns>
+            <exception cref="T:System.ArgumentException">On an invalid JSON token type or value.</exception>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.SetEngineDebugFlagRequest">
+            <summary>
+            An API request to start the evaluation from the current position.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.SetEngineDebugFlagRequest.EnableDebugMode">
+            <summary>
+            Gets or sets a value indicating whether the engine should
+            be set to debug mode.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.StartEvaluationRequest">
+            <summary>
+            An API request to start the evaluation from the current position.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartEvaluationRequest.Position">
+            <summary>
+            Gets or sets the position to start evaluating from.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartEvaluationRequest.CompletionCriteria">
+            <summary>
+            Gets or sets the criteria the engine uses to know when
+            it should stop the evaluation.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartEvaluationRequest.SearchMoves">
+            <summary>
+            Gets or sets a list of moves the engine is allowed to consider
+            in the start position. If the list is null or empty, the engine
+            will consider all moves.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartEvaluationRequest.Clock">
+            <summary>
+            Gets or sets the time control and remaining time for the players.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartEvaluationRequest.EngineOptions">
+            <summary>
+            Gets or sets the list of engine options.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.StartEvaluationResponse">
+            <summary>
+            A class for the response from the StartEvaluation API call.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartEvaluationResponse.Lines">
+            <summary>
+            Gets or sets the evaluated lines.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.StartingPosition">
+            <summary>
+            The starting position of the engine evaluation.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.StartingPosition.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Maki.Model.StartingPosition"/> class.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.StartingPosition.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Maki.Model.StartingPosition"/> class.
+            </summary>
+            <param name="pgn">The starting PGN.</param>
+            <param name="fen">The starting FEN.</param>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartingPosition.Pgn">
+            <summary>
+            Gets or sets the starting Pgn.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.StartingPosition.Fen">
+            <summary>
+            Gets or sets the starting FEN.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.Validation.ValidatedMoveFilter">
+            <summary>
+            A custom validator to ensure that a move filter contains either a SAN move
+            or a UCI move.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Validation.ValidatedMoveFilter.RequiresValidationContext">
+            <inheritdoc cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.Validation.ValidatedMoveFilter.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Determines if the given <see cref="T:Artemis.Analysis.Maki.Model.StartingPosition" /> is complete.
+            </summary>
+            <param name="value">The OptionValue instance.</param>
+            <param name="validationContext">Validation context.</param>
+            <returns>The result of the validation.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.Validation.ValidatedOptionValueAttribute">
+            <summary>
+            A custom validation attribute to validate OptionValue.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Validation.ValidatedOptionValueAttribute.RequiresValidationContext">
+            <inheritdoc cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.Validation.ValidatedOptionValueAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Determines if the given <see cref="T:Artemis.Analysis.Maki.Model.OptionValue" /> is complete.
+            </summary>
+            <param name="value">The OptionValue instance.</param>
+            <param name="validationContext">Validation context.</param>
+            <returns>The result of the validation.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Maki.Model.Validation.ValidatedStartingPositionAttribute">
+            <summary>
+            A custom validation attribute to ensure that the starting position is valid.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Maki.Model.Validation.ValidatedStartingPositionAttribute.RequiresValidationContext">
+            <inheritdoc cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+        </member>
+        <member name="M:Artemis.Analysis.Maki.Model.Validation.ValidatedStartingPositionAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Determines if the given <see cref="T:Artemis.Analysis.Maki.Model.StartingPosition" /> is complete.
+            </summary>
+            <param name="value">The OptionValue instance.</param>
+            <param name="validationContext">Validation context.</param>
+            <returns>The result of the validation.</returns>
+        </member>
+    </members>
+</doc>

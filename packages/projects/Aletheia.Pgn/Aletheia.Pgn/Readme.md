@@ -1,0 +1,1 @@
+[PGN Specification](https://opensource.apple.com/source/Chess/Chess-109.0.3/Documentation/PGN-Standard.txt.auto.html)

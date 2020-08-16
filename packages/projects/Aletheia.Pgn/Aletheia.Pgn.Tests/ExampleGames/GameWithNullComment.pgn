@@ -1,0 +1,96 @@
+[Event "Consultation Morphy-Staunton 2-0"]
+[Site "London"]
+[Date "1858.06.28"]
+[Round "2"]
+[White "Morphy\Barnes"]
+[Black "Staunton\Owen"]
+[Result "1-0"]
+[ECO "B01"]
+[Annotator "ChessBase"]
+[PlyCount "103"]
+[EventDate "1858.06.28"]
+[EventType "game"]
+[EventRounds "2"]
+[EventCountry "ENG"]
+[SourceTitle "EXT 2007"]
+[Source "ChessBase"]
+[SourceDate "2006.11.23"]
+[SourceVersion "1"]
+[SourceVersionDate "2006.11.23"]
+[SourceQuality "1"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd8 4. d4 Nf6 (4... e6 5. Nf3 Bd6 (5... Nf6 6. Bd3
+Be7 7. O-O O-O 8. Be3 b6 9. Ne5 Bb7 10. f4 Nbd7 11. Qe2 Nd5 12. Nxd5 exd5 13.
+Rf3 f5 14. Rh3 g6 15. g4 fxg4 16. Rxh7 {1-0 (29) Steinitz,W-Mongredien,A
+London 1862}) 6. Bd3 Ne7 7. O-O h6 8. Be3 c6 9. Ne5 Nd7 10. f4 Nf6 11. Ne4 Nf5
+12. Bf2 Bc7 13. c3 Nd5 14. Qf3 Qe7 15. Rae1 Bxe5 16. dxe5 {1/2-1/2 (42) Morphy,
+P-Guibert Paris 1858}) 5. Bd3 (5. Nf3 Bg4 6. h3) 5... Nc6 (5... c6 {/\} 6. Nf3
+Bg4) 6. Be3 e6 (6... e5 7. Nf3 exd4 8. Nxd4 Nxd4 9. Bxd4 c6 10. Qe2+ Be6 11.
+Be5 $14) 7. Nf3 Bd6 {Preventing the intended set-up with Nf3-e5 and f2-f4.
+Compare the 2 months later played game against Guibert in Paris and even
+Steinitz used this set-up against Mongredien in London 1862. (Look at 4...e6).}
+8. O-O O-O 9. Qe2 b6 10. Bg5 Bb7 $11 {[#] Both sides have developed their
+pieces nicely, so the position is about equal.} 11. Ne4 {White tries to find a
+way to attack} Be7 (11... Nb4 $5 {Allows} 12. Bxf6 gxf6 {But this looks okay
+for Black}) 12. Nxf6+ Bxf6 (12... gxf6 {with the idea start an attack in the
+g-file, is more risky.} 13. Bh6 Re8 14. Ng5 $1 $16 fxg5 $4 15. Qe4 f5 16. Qxe6+
+Kh8 17. Qxf5 $18) 13. Qe4 $1 g6 14. Qh4 {White has cleverly managed to start
+an attack. Pay attention, how he brought his Queen from d1 to h4.} Bxg5 (14...
+Kg7 15. Qh6+ $1 (15. c3 Bxg5 16. Nxg5 h6) 15... Kg8 16. c3 $14) 15. Nxg5 h5 16.
+c3 $14 Qf6 17. Rae1 Ne7 18. f4 {Here we are again with the f4 set-up} Nf5 19.
+Qh3 {Still observing the square h7 and preparing to play g2-g4 at the right
+moment.} Rfe8 20. Re5 Rad8 21. Rfe1 {/\Bxf5} Ng7 22. g4 $5 {No more
+preparation moves, the attack has to go on! It looks doubled edged, because
+even the white king's position is weakened.} c5 $1 (22... Qxf4 $2 23. Rf1 Qxg4+
+24. Qxg4 hxg4 25. Rxf7 $18) (22... Rd5 {Löwenthal: Black would only have
+acquired a worse position} {after} 23. Ne4 {Löwenthals continuation} (23. Qg3
+$14 {RR This is the better move, giving White good prospects.} Rxe5 (23... hxg4
+24. Qxg4 Nh5 25. f5) 24. dxe5 Qe7 25. Be4 Qc5+ 26. Kh1 $14) 23... Qe7 24. g5
+Rxe5 25. Nf6+ Kf8 (25... Qxf6 26. gxf6 Rxe1+ 27. Kf2 {Löwenthal: With a
+preferable game} {But after} Ra1 28. fxg7 Rxa2 $19 {Black is clearly better,
+close to win.}) 26. fxe5 $16) 23. Be4 $1 Ba6 $1 {Very sensitive defence.} (
+23... Bxe4 24. Nxe4 {There is now a Knightfork on f6 in the air.} Qxf4 (24...
+Qe7 25. gxh5 Nxh5 26. Rxh5 gxh5 27. Qxh5 {With a strong attack} f5 28. Ng5 Qg7
+29. Kf2 cxd4 30. Nxe6 $18) 25. Rf1 hxg4 26. Rxf4 gxh3 27. Nf6+ Kf8 28. Nxe8
+Kxe8 29. dxc5 $14) 24. gxh5 $1 Nxh5 25. Bf3 $1 (25. dxc5 bxc5 (25... Rd2 $17)
+26. Rxc5 Rd2 $17 {And Black is attacking} 27. Bc6 Red8 28. Ne4 Qxf4 29. Nxd2
+Rxd2 30. Kh1 Be2 $1 $19) 25... cxd4 $2 (25... Nxf4 $142 26. Qh7+ Kf8 27. Bc6
+cxd4 28. Qh6+ Kg8 29. Bxe8 Rxe8 30. Nh7 Qg7 31. Qxf4 Qxh7 32. cxd4 $16) 26.
+Bxh5 gxh5 $2 (26... dxc3 $142 $1 27. Be2 c2 $1 28. Qh7+ Kf8 29. Qh4 Kg7 30. Qf2
+Bb7 31. Qe3 Rd6 32. Rc1 {White has only slightly better chances}) 27. Qxh5 $2 {
+Looks normal, but too quickly played} (27. Ne4 $1 {Is the better and winning
+move.} Qxf4 {forced} 28. Rxh5 Kf8 29. cxd4 Rxd4 30. Qa3+ Re7 31. Qxa6 $18)
+27... Qg7 ({Now Staunton didn't find the hidden resource of his fine
+defencesive move 23...Ba6.} 27... Bd3 $1 $11 {Protecting e4 and h7} 28. cxd4
+Rxd4 {Looks like winning} {But White can save the position by the not easy to
+find} 29. Nxf7 $1 Bg6 (29... Rxf4 30. Nh6+ Kf8 31. Qxe8+ Kxe8 32. Rxe6+ Qxe6
+33. Rxe6+ Kf8 $11) (29... Qxf7 $4 30. Rg5+ Kf8 31. Qh8+ Ke7 32. Qxd4 $18) 30.
+Nh6+ Kg7 31. Rg5 Rh8 32. f5 Rxh6 33. Qxh6+ Kxh6 34. Rxg6+ Qxg6+ 35. fxg6 $11)
+28. Kf2 $1 {Freeing g1 for the rook, White still has the attack} Qf6 $1 {
+Best defence} (28... dxc3 29. Ne4 Kf8 30. Rg1 $18) 29. Qh4 $2 {A second
+blunder in short time (after 27.Qxh5?) throws away the advantage.} (29. Nxf7 $1
+Qxf4+ 30. Kg2 Bb7+ (30... Qxf7 31. Rg5+ Kf8 32. Qh6+ Ke7 33. Rg7 $18) 31. Kg1 {
+The position of the white King looks very open, but only two attacking Black
+pieces can't continue the attack.} Qxf7 32. Rg5+ Kf8 33. Qh6+ Ke7 34. Rg7 Qxg7+
+(34... Rg8 35. Qxe6+ Kf8 36. Qxf7#) 35. Qxg7+ $18) 29... Bd3 {Now he has it.} (
+{But may be} 29... dxc3 {is even stronger.} 30. Rg1 Rd2+ 31. Kf3 Rd3+ 32. Kf2 (
+32. Ke4 Qg6+ 33. f5 exf5+ 34. Kf4 Rxe5 $19) 32... Rd2+ $11) 30. Qg3 {White has
+to start new.} Bg6 $2 (30... Qg6 $142 $11 {Now the Bd3 can defend f5 better.}
+31. f5 $2 Bxf5) 31. f5 (31. Ne4 $1 {More precise move order. The Queen has to
+go to g7} Qg7 32. f5 f6 (32... Bxf5 $2 33. Nf6+ Kf8 34. Qxg7+ Kxg7 35. Nxe8+
+$18 Kf8 (35... Rxe8 36. Rxf5 $18) 36. cxd4 Rxe8 37. Rxf5 $18 exf5 38. Rxe8+
+Kxe8 39. h4 $18 {Easy won Pawn ending}) 33. Rxe6 Rxe6 34. fxe6 Bxe4 35. Rxe4
+Qxg3+ 36. Kxg3 d3 37. e7 Re8 38. Kf3 $16 {The Rook ending looks lost for Black,
+but it's not easy.} Kg7 39. Re3 (39. Ke3 f5 40. Ra4 Rxe7+ 41. Kxd3 Kf6 42. h4
+$14) 39... f5 40. Rxd3 Rxe7 41. Rd6 $16) 31... Bxf5 {The half pinned Bishop
+can't defend good the break f5. On d3 he would not have been pinned.} (31...
+dxc3 32. Ne4 Qg7 33. fxg6 $18) 32. Ne4+ Qg6 33. Nf6+ Kf8 34. Qxg6 Bxg6 35. Nxe8
+Kxe8 (35... dxc3 36. bxc3 Kxe8 37. h4 Kf8 38. h5 Bf5 39. Rg1 $14) 36. h4 $5 {
+The pawn can't be protected good here.} (36. cxd4 Rxd4) 36... d3 37. Ke3 Ke7 (
+37... d2 38. Rd1 Rd3+ 39. Kf2 Rh3 40. Rxd2 Rh2+ 41. Ke3 Rxh4 42. Rd4 Rh3+ 43.
+Kd2 Rh2+ 44. Re2 $14) 38. Kd2 Rd6 $2 (38... Rh8 39. h5 Bxh5 40. Rh1 f5 41. Re3
+Kf6 42. Rxd3 $14) 39. Rg5 $1 $16 (39. h5 f6) 39... Kf6 40. Rf1+ Bf5 41. Rg8 Rd5
+$2 (41... Rc6 42. h5 Rc4) 42. h5 $18 Re5 43. Rf2 Re4 44. Rh2 Bh7 45. Rh8 Kg7
+46. Ra8 Kh6 (46... a5 47. h6+ Kf6 48. Rh8 Bf5 49. Rf8 $18 Ke7 50. Rb8 Re2+ 51.
+Rxe2 dxe2 52. Kxe2 $18) 47. Rxa7 Rf4 48. Rb7 e5 49. Rxb6+ f6 50. a4 e4 51. Re6
+Rf3 52. a5 {A great fight.} 1-0

@@ -1,0 +1,729 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Artemis.Analysis</name>
+    </assembly>
+    <members>
+        <member name="T:Artemis.Analysis.AnalysisBuilder">
+            <summary>
+            Builder pattern class to construct an analysis context with an engine.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.#ctor(Artemis.Analysis.Maki.Client.IMakiClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.AnalysisBuilder" /> class.
+            </summary>
+            <param name="makiClient">The evaluation provider.</param>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.InPosition(System.String)">
+            <summary>
+            Sets the position and returns the builder for further modification.
+            </summary>
+            <param name="fen">The fen string.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.WithGoal(Artemis.Analysis.Goals.IAnalysisGoal)">
+            <summary>
+            Sets the goal for this analysis. Preferable
+            way is to use the extension methods directly.
+            </summary>
+            <param name="goal">The goal.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.InPosition(ChessBot.Logic.Board)">
+            <summary>
+            Sets the position and returns the builder for further modification.
+            </summary>
+            <param name="board">The board.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.InPosition(Artemis.Model.FlatPosition)">
+            <summary>
+            Sets the position and returns the builder for further modification.
+            </summary>
+            <param name="flatPosition">The flat position.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.Is(ChessBot.Logic.Moves.Move)">
+            <summary>
+            Sets the move that we want to check.
+            </summary>
+            <param name="move">The logical move.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.Is(System.String)">
+            <summary>
+            Sets the move that we want to check. If setting the move as a string,
+            the position must have already been set.
+            </summary>
+            <param name="move">The move in SAN or UCI notation.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.StopAfter(System.Action{Artemis.Analysis.StopBuilder})">
+            <summary>
+            Sets the stop criteria so that the engine knows when the evaluation is complete.
+            </summary>
+            <param name="stopBuilderAction">A function to build the stop criteria.</param>
+            <returns>The AnalysisBuilder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.WithProperty(System.String,System.Object)">
+            <summary>
+            Sets a custom property of the analysis builder.
+            </summary>
+            <param name="key">The key of the property.</param>
+            <param name="obj">The value object.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisBuilder.EvalAsync">
+            <summary>
+            Performs the analysis with the given context data against the specified goal.
+            </summary>
+            <returns>The result of the analysis.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.AnalysisExtensions">
+            <summary>
+            A collection of extension methods for converting from the Maki datatypes
+            to the analysis ones.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisExtensions.ToAnalysisEval(Artemis.Analysis.Maki.Model.EvaluationScore)">
+            <summary>
+            Converts a Maki evaluation to an analysis one.
+            </summary>
+            <param name="score">The Maki score.</param>
+            <returns>The Analysis evaluation.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.AnalysisSession">
+            <summary>
+            A class representing a single session of analysis.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.#ctor(Artemis.Analysis.Maki.Client.IMakiClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.AnalysisSession"/> class.
+            </summary>
+            <param name="makiClient">The evaluation in hundredths of a pawn.</param>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.DisposeAsync">
+            <summary>
+            Asynchronously disposes of the maki client and returns the capacity back.
+            </summary>
+            <returns>An awaitable task.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.Is(System.String)">
+            <summary>
+            Creates a new analysis builder starting with a move.
+            </summary>
+            <param name="move">The move in FEN or SAN notation.</param>
+            <returns>An analysis builder with the move.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.Is(ChessBot.Logic.Moves.Move)">
+            <summary>
+            Creates a new analysis builder starting with a move.
+            </summary>
+            <param name="move">The move.</param>
+            <returns>An analysis builder with the move.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.InPosition(System.String)">
+            <summary>
+            Creates a new analysis builder starting with a position.
+            </summary>
+            <param name="position">The position.</param>
+            <returns>An analysis builder with the move.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.InPosition(ChessBot.Logic.Board)">
+            <summary>
+            Creates a new analysis builder starting with a position.
+            </summary>
+            <param name="board">The board.</param>
+            <returns>An analysis builder with the move.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.AnalysisSession.InPosition(Artemis.Model.FlatPosition)">
+            <summary>
+            Creates a new analysis builder starting with a position.
+            </summary>
+            <param name="flatPosition">The position.</param>
+            <returns>An analysis builder with the move.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.EngineEnvironment">
+            <summary>
+            A class that maintains the evaluation provider and is directly used
+            by clients of this library for creating the analysis builder and
+            the subsequence objects in the evaluation process.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.EngineEnvironment.#ctor(Artemis.Analysis.Provider.IMakiClientProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.EngineEnvironment" /> class.
+            </summary>
+            <param name="makiClientProvider">The client provider.</param>
+        </member>
+        <member name="P:Artemis.Analysis.EngineEnvironment.Cores">
+            <summary>
+            Gets or sets the desired number of cores.
+            Note: It is up to the <see cref="T:Artemis.Analysis.Provider.IMakiClientProvider"/> to actually get the capacity.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.EngineEnvironment.MemoryMB">
+            <summary>
+            Gets or sets the desired memory in MegaBytes requested.
+            Note: It is up to the <see cref="T:Artemis.Analysis.Provider.IMakiClientProvider"/> to actually get the capacity.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.EngineEnvironment.NewAnalysisSessionAsync">
+            <summary>
+            Creates a new analysis session and returns the associated analysis builder.
+            </summary>
+            <returns>An analysis builder.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Evaluation">
+            <summary>
+            A struct storing the evaluation information associated with a list of moves or a position.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.#ctor(System.Nullable{System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Evaluation"/> struct.
+            </summary>
+            <param name="centipawns">The evaluation in hundredths of a pawn.</param>
+            <param name="movesUntilMate">The number of moves until mate.</param>
+        </member>
+        <member name="P:Artemis.Analysis.Evaluation.Centipawns">
+            <summary>
+            Gets the centipawn evaluation, if the engine did not
+            find a forced mate.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Evaluation.MovesUntilMate">
+            <summary>
+            Gets the number of moves until mate, if the engine
+            found a forced mate.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_LessThanOrEqual(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            A less than or equals to operator for piece value.
+            </summary>
+            <param name="eval1">The first value to check.</param>
+            <param name="eval2">The second value to check.</param>
+            <returns>True if the first value is less than or equal to the second value.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_GreaterThanOrEqual(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            A greater than or equals to operator for piece value.
+            </summary>
+            <param name="eval1">The first value to check.</param>
+            <param name="eval2">The second value to check.</param>
+            <returns>True if the first value is greater than or equal to the second value.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_GreaterThan(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            A greater than operator for piece value.
+            </summary>
+            <param name="pv1">The first value to check.</param>
+            <param name="pv2">The second value to check.</param>
+            <returns>True if the first value is greater than the second value.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_LessThan(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            A less than operator for piece value.
+            </summary>
+            <param name="pv1">The first value to check.</param>
+            <param name="pv2">The second value to check.</param>
+            <returns>True if the first value is less than the second value.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_Equality(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            An equality check operator for piece value.
+            </summary>
+            <param name="eval1">The first evaluation to check.</param>
+            <param name="eval2">The second evaluation to check.</param>
+            <returns>True if the first value is equal to the second value.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_Inequality(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            An negative equality check operator for piece value.
+            </summary>
+            <param name="eval1">The first evaluation to check.</param>
+            <param name="eval2">The second evaluation to check.</param>
+            <returns>True if the first value is not equal to the second value.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.op_Subtraction(Artemis.Analysis.Evaluation,Artemis.Analysis.Evaluation)">
+            <summary>
+            Subtracts the two evaluations.
+            </summary>
+            <param name="eval1">The first evaluation.</param>
+            <param name="eval2">The second evaluation.</param>
+            <returns>The subtraction.</returns>
+            <exception cref="T:System.ArgumentException">If either eval is missing both MovesUntilMate and Centipawns.</exception>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.Equals(System.Object)">
+            <summary>
+            Checks if the given object is equal to this instance.
+            </summary>
+            <param name="obj">The object to check for equality.</param>
+            <returns>True if the given object is equal to the current object.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.ToString">
+            <summary>
+            Gets the string representation of this piece value.
+            </summary>
+            <returns>The piece value as a string.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Evaluation.GetHashCode">
+            <summary>
+            Gets the hash code for this piece value.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.EvaluationClient">
+            <summary>
+            Client that simplifies engine interactions.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.EvaluationClient.#ctor(Artemis.Analysis.Maki.Client.IMakiClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.EvaluationClient" /> class.
+            </summary>
+            <param name="makiClient">The Maki client.</param>
+        </member>
+        <member name="M:Artemis.Analysis.EvaluationClient.FindBestMoveAsync(System.String,Artemis.Analysis.Maki.Model.CompletionCriteria)">
+            <summary>
+            Finds the best line in the position.
+            </summary>
+            <param name="position">The FEN position.</param>
+            <param name="completionCriteria">The stop parameters.</param>
+            <returns>The best line found.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.EvaluationClient.EvaluatePositionAsync(System.String,Artemis.Analysis.Maki.Model.CompletionCriteria)">
+            <summary>
+            Evaluates the given position.
+            </summary>
+            <param name="position">The FEN position.</param>
+            <param name="completionCriteria">The completion criteria.</param>
+            <returns>The evaluation.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.EvaluationClient.EvaluatePositionAfterMoveAsync(System.String,System.String,Artemis.Analysis.Maki.Model.CompletionCriteria)">
+            <summary>
+            Evaluates the given position.
+            </summary>
+            <param name="position">The FEN position.</param>
+            <param name="move">The move to make and then evaluate.</param>
+            <param name="completionCriteria">The completion criteria.</param>
+            <returns>The evaluation.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.AnalysisGoalKeys">
+            <summary>
+            A collection of keys to use in the analysis data dictionary in
+            the <see cref="T:Artemis.Analysis.AnalysisBuilder"/>.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.AnalysisGoalKeys.PositionFen">
+            <summary>
+            The position in FEN notation.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.AnalysisGoalKeys.LogicalMove">
+            <summary>
+            The logical move (already converted from SAN or UCI).
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.AnalysisGoalKeys.GetPositionFen(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Gets the fen position from an analysis data dictionary.
+            </summary>
+            <param name="analysisData">The analysis data dictionary.</param>
+            <returns>The position in FEN notation.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If the key for the FenPosition was not found.</exception>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.AnalysisGoalKeys.SetFenPosition(System.Collections.Generic.IDictionary{System.String,System.Object},System.String)">
+            <summary>
+            Sets the fen position in an analysis data dictionary. If a value is already set,
+            the value is overridden.
+            </summary>
+            <param name="analysisData">The analysis data dictionary.</param>
+            <param name="fenPosition">The position in <a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation">FEN notation</a>.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.AnalysisGoalKeys.GetLogicalMove(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Gets the logical move from an analysis data dictionary.
+            </summary>
+            <param name="analysisData">The analysis data dictionary.</param>
+            <returns>The logical move object.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">If the key for the logical move was not found.</exception>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.AnalysisGoalKeys.SetLogicalMove(System.Collections.Generic.IDictionary{System.String,System.Object},ChessBot.Logic.Moves.Move)">
+            <summary>
+            Sets the fen position in an analysis data dictionary. If a value is already set,
+            the value is overridden.
+            </summary>
+            <param name="analysisData">The analysis data dictionary.</param>
+            <param name="logicalMove">The logical move object.</param>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.EvalRange">
+            <summary>
+            An evaluation range.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.EvalRange.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Goals.EvalRange"/> struct for an unoccupied square.
+            </summary>
+            <param name="start">The start of the range.</param>
+            <param name="end">The end of the range.</param>
+        </member>
+        <member name="P:Artemis.Analysis.Goals.EvalRange.Start">
+            <summary>
+            Gets the start of the eval range.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Goals.EvalRange.End">
+            <summary>
+            Gets the end of the eval range.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.GoalExtensions">
+            <summary>
+            Extension methods to add to the AnalysisBuilder for specific.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.ABlunder(Artemis.Analysis.AnalysisBuilder)">
+            <summary>
+            Sets the analysis builder goal to check if a move is a blunder.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>The analysis builder with the blunder goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.AMistake(Artemis.Analysis.AnalysisBuilder)">
+            <summary>
+            Sets the analysis builder goal to check if a move is a blunder.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>The analysis builder with the mistake goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.AnInaccuracy(Artemis.Analysis.AnalysisBuilder)">
+            <summary>
+            Sets the analysis builder goal to check if a move is a blunder.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>The analysis builder with the inaccuracy goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.WinningFor(Artemis.Analysis.AnalysisBuilder,Artemis.Model.PieceColor)">
+            <summary>
+            Sets the analysis builder goal to check if a position after a move is made is winning.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="color">The piece color.</param>
+            <returns>The analysis builder with the position goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.BetterFor(Artemis.Analysis.AnalysisBuilder,Artemis.Model.PieceColor)">
+            <summary>
+            Sets the analysis builder goal to check if a position after a move is made is better.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="color">The piece color.</param>
+            <returns>The analysis builder with the position goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.Even(Artemis.Analysis.AnalysisBuilder,Artemis.Model.PieceColor)">
+            <summary>
+            Sets the analysis builder goal to check if a position after a move is made is even.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="color">The piece color.</param>
+            <returns>The analysis builder with the position goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.WorseFor(Artemis.Analysis.AnalysisBuilder,Artemis.Model.PieceColor)">
+            <summary>
+            Sets the analysis builder goal to check if a position after a move is made is worse.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="color">The piece color.</param>
+            <returns>The analysis builder with the position goal set.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.GoalExtensions.LosingFor(Artemis.Analysis.AnalysisBuilder,Artemis.Model.PieceColor)">
+            <summary>
+            Sets the analysis builder goal to check if a position after a move is made is losing.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="color">The piece color.</param>
+            <returns>The analysis builder with the position goal set.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.GoalResult">
+            <summary>
+            A class to store the result of a goal and associated data from the engine.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Goals.GoalResult.MeetsGoal">
+            <summary>
+            Gets or sets a value indicating whether the goal was met.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Goals.GoalResult.EvaluationResponses">
+            <summary>
+            Gets or sets the list of evaluation responses.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.IAnalysisGoal">
+            <summary>
+            An interface specifying the mechanism of creating the evaluation requests
+            and interpreting the results.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.IAnalysisGoal.EvalAsync(Artemis.Analysis.EvaluationClient,Artemis.Analysis.Maki.Model.CompletionCriteria,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Evaluates this goal.
+            </summary>
+            <param name="evaluationClient">The eval client.</param>
+            <param name="completionCriteria">The completion criteria.</param>
+            <param name="analysisData">The analysis data.</param>
+            <returns>The result of the evaluation.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.MoveThreshold">
+            <summary>
+            The threshold to check a move against relative to the best move.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.MoveThreshold.Blunder">
+            <summary>
+            A move that is a blunder, or >150 centi-pawns worse than the best move.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.MoveThreshold.Mistake">
+            <summary>
+            A move that is a mistake, or >150 centi-pawns worse than the best move.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.MoveThreshold.Inaccuracy">
+            <summary>
+            A move that is a inaccuracy, or between 10 and 49 centi-pawns worse than the best move.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.MoveThresholdGoal">
+            <summary>
+            A goal that checks a move against a threshold.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.MoveThresholdGoal.#ctor(Artemis.Analysis.Goals.MoveThreshold)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Goals.MoveThresholdGoal"/> class.
+            </summary>
+            <param name="threshold">The threshold.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.MoveThresholdGoal.EvalAsync(Artemis.Analysis.EvaluationClient,Artemis.Analysis.Maki.Model.CompletionCriteria,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Evaluates a position and move to see if the move meets the threshold.
+            </summary>
+            <param name="evaluationClient">The evaluation client.</param>
+            <param name="completionCriteria">The criteria for the engine to stop after.</param>
+            <param name="analysisData">The data required for analysis.</param>
+            <returns>The analysis result.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.PositionThreshold">
+            <summary>
+            The threshold to check a move against relative to the overall goal of winning the game.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.PositionThreshold.Losing">
+            <summary>
+            A move that, after made, is losing for the moving side.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.PositionThreshold.Worse">
+            <summary>
+            A move that, after made, is worse - but salvageable - for the moving side.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.PositionThreshold.Even">
+            <summary>
+            A move that, after made, results in an even position.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.PositionThreshold.Better">
+            <summary>
+            A move that, after made, results in a position better - but not winning - for the moving side.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.PositionThreshold.Winning">
+            <summary>
+            A move that, after made, results in a position better for the moving side.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.PositionThresholdGoal">
+            <summary>
+            A goal that evaluates a position after a move is played as winning for the moving side,
+            losing for the moving side, or anywhere in between.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.PositionThresholdGoal.#ctor(Artemis.Analysis.Goals.PositionThreshold,Artemis.Model.PieceColor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Goals.PositionThresholdGoal"/> class.
+            </summary>
+            <param name="threshold">The threshold.</param>
+            <param name="color">The piece color.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.PositionThresholdGoal.EvalAsync(Artemis.Analysis.EvaluationClient,Artemis.Analysis.Maki.Model.CompletionCriteria,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Evaluates a position and move to see if the move meets the threshold.
+            </summary>
+            <param name="evaluationClient">The evaluation client.</param>
+            <param name="completionCriteria">The criteria for the engine to stop after.</param>
+            <param name="analysisData">The data required for analysis.</param>
+            <returns>The analysis result.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Goals.ThresholdExtensions">
+            <summary>
+            Extension methods for the <see cref="T:Artemis.Analysis.Goals.MoveThreshold" /> enum.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.InaccuracyThreshold">
+            <summary>
+            The threshold to consider a move an inaccuracy.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.MistakeThreshold">
+            <summary>
+            The threshold to consider a move an mistake.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.BlunderThreshold">
+            <summary>
+            The threshold to consider a move an blunder.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.LosingThreshold">
+            <summary>
+            The threshold to consider a position lost for the moving side.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.WorseThreshold">
+            <summary>
+            The threshold to consider a position worse for the moving side.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.EvenThreshold">
+            <summary>
+            The threshold to consider a position even.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.BetterThreshold">
+            <summary>
+            The threshold to consider a position better for the moving side.
+            </summary>
+        </member>
+        <member name="F:Artemis.Analysis.Goals.ThresholdExtensions.WinningThreshold">
+            <summary>
+            The threshold to consider a position winning for the moving side.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.ThresholdExtensions.GetDefaultCentipawnLossRange(Artemis.Analysis.Goals.MoveThreshold)">
+            <summary>
+            Gets the default centipawn loss range for each move threshold.
+            </summary>
+            <param name="moveThreshold">The move threshold.</param>
+            <returns>The range that qualifies a move to be considered a move of that MoveThreshold type.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.Goals.ThresholdExtensions.GetDefaultEvaluationRange(Artemis.Analysis.Goals.PositionThreshold)">
+            <summary>
+            Gets the evaluation range for a position threshold.
+            </summary>
+            <param name="positionThreshold">The position threshold.</param>
+            <returns>The range that qualifies a move to be considered a move of that <see cref="T:Artemis.Analysis.Goals.PositionThreshold" /> type.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Provider.CapacityRequirement">
+            <summary>
+            A class storing the requested capacity.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Provider.CapacityRequirement.Cores">
+            <summary>
+            Gets or sets the desired number of cores.
+            Note: It is up to the <see cref="T:Artemis.Analysis.Provider.IMakiClientProvider"/> to actually get the capacity.
+            </summary>
+        </member>
+        <member name="P:Artemis.Analysis.Provider.CapacityRequirement.MemoryMB">
+            <summary>
+            Gets or sets the desired memory in MegaBytes requested.
+            Note: It is up to the <see cref="T:Artemis.Analysis.Provider.IMakiClientProvider"/> to actually get the capacity.
+            </summary>
+        </member>
+        <member name="T:Artemis.Analysis.Provider.DirectIpMakiEvaluationProvider">
+            <summary>
+            An evaluation provider that creates an eval client over websocket interface.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Provider.DirectIpMakiEvaluationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Artemis.Analysis.Provider.DirectIpMakiEvaluationProvider" /> class.
+            </summary>
+            <param name="url">The URL of the host running the Maki engine wrapper.</param>
+        </member>
+        <member name="M:Artemis.Analysis.Provider.DirectIpMakiEvaluationProvider.CreateMakiClientAsync(Artemis.Analysis.Provider.CapacityRequirement)">
+            <summary>
+            Creates an evaluation client with a websocket connection to the specified host.
+            </summary>
+            <param name="_">An ignored capacity requirement.</param>
+            <returns>An awaitable task with an evaluation client.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.Provider.IMakiClientProvider">
+            <summary>
+            An interface with required methods to be able to provide analysis.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.Provider.IMakiClientProvider.CreateMakiClientAsync(Artemis.Analysis.Provider.CapacityRequirement)">
+            <summary>
+            Creates a maki client.
+            </summary>
+            <param name="capacityRequirement">The required capacity type, such as cores and memory requirements.</param>
+            <returns>An awaitable task.</returns>
+        </member>
+        <member name="T:Artemis.Analysis.StopBuilder">
+            <summary>
+            The builder class for constructing the stop params.
+            </summary>
+        </member>
+        <member name="M:Artemis.Analysis.StopBuilder.Time(System.TimeSpan)">
+            <summary>
+            Sets the evaluation to stop after reaching the specified ply depth.
+            </summary>
+            <param name="duration">The amount of time the engine should use before stopping.</param>
+            <returns>A builder with the updated stop params.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.StopBuilder.PlyDepth(System.UInt16)">
+            <summary>
+            Sets the evaluation to stop after reaching the specified ply depth.
+            </summary>
+            <param name="plyDepth">The ply depth to stop after reaching.</param>
+            <returns>A builder with the updated stop params.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.StopBuilder.Nodes(System.UInt64)">
+            <summary>
+            Sets the evaluation to stop after having explored the given
+            number of nodes.
+            </summary>
+            <param name="nodes">The number of nodes to stop after.</param>
+            <returns>A builder with the updated stop params.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.StopBuilder.MateMoves(System.UInt16)">
+            <summary>
+            Sets the evaluation to stop after finding (or not finding) a mating sequence
+            in the specified number of moves.
+            </summary>
+            <param name="mateMoves">The number of moves to look for mate.</param>
+            <returns>A builder with the updated stop params.</returns>
+        </member>
+        <member name="M:Artemis.Analysis.StopBuilder.Never">
+            <summary>
+            Sets the evaluation stop mode to never stop until instructed.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If this method is called after
+            a finite bound is set.</exception>
+        </member>
+        <member name="M:Artemis.Analysis.StopBuilder.ToCompletionCriteria">
+            <summary>
+            Gets the <see cref="T:Artemis.Analysis.Maki.Model.CompletionCriteria"/> object to use when
+            making the Maki API call.
+            </summary>
+            <returns>The Maki CompletionCriteria parameter.</returns>
+        </member>
+    </members>
+</doc>

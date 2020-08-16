@@ -1,0 +1,12 @@
+﻿@using Aletheia.Pgn
+@using Aletheia.Pgn.Model
+@using Microsoft.JSInterop
+@code {
+
+    [JSInvokable]
+    public static PgnGame ParsePgn(string pgnText)
+    {
+      var parser = new PgnGameParser();
+      return parser.ParseGame(pgnText);
+    }
+}

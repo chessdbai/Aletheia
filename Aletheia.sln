@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pgn", "Pgn", "{FA627B29-77B6-4738-A412-49D0A6256A58}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Aletheia.Pgn.Parser", "packages\projects\Aletheia.Pgn\Aletheia.Pgn.Parser\Aletheia.Pgn.Parser.fsproj", "{EF97BE5E-82A9-4598-BCE5-F1597C41AB02}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Aletheia.Pgn.Parser.Tests", "packages\projects\Aletheia.Pgn\Aletheia.Pgn.Parser.Tests\Aletheia.Pgn.Parser.Tests.fsproj", "{DA1E6DF9-6539-4D52-9107-9CB401221FC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aletheia.Pgn", "packages\projects\Aletheia.Pgn\Aletheia.Pgn\Aletheia.Pgn.csproj", "{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aletheia.Pgn.Tests", "packages\projects\Aletheia.Pgn\Aletheia.Pgn.Tests\Aletheia.Pgn.Tests.csproj", "{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Webasm", "Webasm", "{14C3E854-9DEE-4C48-BC13-D945C5DED833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aletheia.Webasm", "packages\projects\Aletheia.Webasm\Aletheia.Webasm\Aletheia.Webasm.csproj", "{C6ABC9B8-7528-442C-A183-885325460E9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF97BE5E-82A9-4598-BCE5-F1597C41AB02} = {FA627B29-77B6-4738-A412-49D0A6256A58}
+		{DA1E6DF9-6539-4D52-9107-9CB401221FC3} = {FA627B29-77B6-4738-A412-49D0A6256A58}
+		{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27} = {FA627B29-77B6-4738-A412-49D0A6256A58}
+		{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40} = {FA627B29-77B6-4738-A412-49D0A6256A58}
+		{C6ABC9B8-7528-442C-A183-885325460E9F} = {14C3E854-9DEE-4C48-BC13-D945C5DED833}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF97BE5E-82A9-4598-BCE5-F1597C41AB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF97BE5E-82A9-4598-BCE5-F1597C41AB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF97BE5E-82A9-4598-BCE5-F1597C41AB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF97BE5E-82A9-4598-BCE5-F1597C41AB02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1E6DF9-6539-4D52-9107-9CB401221FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1E6DF9-6539-4D52-9107-9CB401221FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1E6DF9-6539-4D52-9107-9CB401221FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1E6DF9-6539-4D52-9107-9CB401221FC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6ABC9B8-7528-442C-A183-885325460E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6ABC9B8-7528-442C-A183-885325460E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6ABC9B8-7528-442C-A183-885325460E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6ABC9B8-7528-442C-A183-885325460E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

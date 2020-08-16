@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="Artemis.Webasm">
+    <type fullname="*" required="true" />
+  </assembly>
+</linker>

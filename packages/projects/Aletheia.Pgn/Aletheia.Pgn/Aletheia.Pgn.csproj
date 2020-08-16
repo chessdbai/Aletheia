@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TargetFrameworks>
+            netcoreapp3.1;netstandard2.1
+        </TargetFrameworks>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aletheia.Pgn.Parser\Aletheia.Pgn.Parser.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="stylecop.json" />
+      <AdditionalFiles Include="stylecop.json" />
+    </ItemGroup>
+
+</Project>
