@@ -1,24 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <TargetFrameworks>
-            netcoreapp3.1;netstandard2.1
-        </TargetFrameworks>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Title>ChessDB.Alethia.Pgn</Title>
+        <Description>The C# Pgn parsing library.</Description>
+        <PackageTags>parser pgn chessdbai alethia chess</PackageTags>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>ChessDB.Alethia.Pgn</PackageId>
+        <Version>1.0.3</Version>
+        <Authors>john@chessdb.biz</Authors>
+        <Company>ChessDB</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+    <ItemGroup Condition="'$(Configuration)' == 'Debug' ">
+        <ProjectReference Include="..\Aletheia.Pgn.Parser\Aletheia.Pgn.Parser.fsproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Aletheia.Pgn.Parser\Aletheia.Pgn.Parser.fsproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="stylecop.json" />
-      <AdditionalFiles Include="stylecop.json" />
+    <ItemGroup Condition="'$(Configuration)' == 'Release' ">
+        <PackageReference Include="ChessDB.Aletheia.Pgn.Parser" />
     </ItemGroup>
 
 </Project>

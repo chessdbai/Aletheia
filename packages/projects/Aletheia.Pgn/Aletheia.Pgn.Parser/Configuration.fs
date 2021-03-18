@@ -5,4 +5,4 @@ open Notation
 open FParsec
 
 type ParserConfiguration() =
-    member this.Charsets : NotationCharSets = [ SanCharset; FigurineCharset ]
+    member val Charsets : NotationCharSets = [ SanCharset; FigurineCharset ] with get, set

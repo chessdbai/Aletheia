@@ -21,27 +21,35 @@ namespace Aletheia.Pgn
         /// <summary>
         /// Create a <see cref="PgnGame" /> from a tokenized game hot off being parsed.
         /// </summary>
+        /// <param name="pgnText">The original pgn text.</param>
         /// <param name="tokenizedPgnGame">The just-parsed tokenized game.</param>
+        /// <param name="pgnConfiguration">The configuration to use for the game.</param>
         /// <returns>The assembled PgnGame object.</returns>
-        internal static PgnGame AssembleGameFromTokens(Game.TokenizedPgnGame tokenizedPgnGame)
+        internal static PgnGame AssembleGameFromTokens(
+            string pgnText,
+            Game.TokenizedPgnGame tokenizedPgnGame,
+            PgnConfiguration pgnConfiguration)
         {
             var tagDictionary = tokenizedPgnGame.Tags
                 .Select(t => new GameTag()
                 {
                     Name = t.Item1,
                     Value = t.Item2,
-                }).ToDictionary(
-                    tag => tag.Name,
-                    tag => new GameTag()
+                })
+                .GroupBy(tag => tag.Name)
+                .ToDictionary(
+                    grp => grp.Key,
+                    grp => new GameTag()
                     {
-                        Name = tag.Name,
-                        Value = tag.Value,
+                        Name = grp.First().Name,
+                        Value = grp.First().Value,
                     });
-            (GamePly firstPly, GameResult _) = ParsePlies(tokenizedPgnGame.Tokens);
+            (GamePly firstPly, GameResult _) = ParsePlies(tokenizedPgnGame.Tokens, pgnConfiguration);
             return new PgnGame()
             {
                 AllTags = tagDictionary,
                 FirstPly = firstPly,
+                OriginalPgnText = pgnText,
             };
         }
 
@@ -50,9 +58,12 @@ namespace Aletheia.Pgn
         /// </summary>
         /// <param name="lineTokens">A collection of tokens from the body of a game, or
         /// from a recursive line.</param>
+        /// <param name="pgnConfiguration">The configuration to use for the game.</param>
         /// <returns>The root game ply and the final result token.</returns>
         /// <exception cref="PgnFormatException">Thrown if the content of a result token contained invalid data.</exception>
-        internal static (GamePly, GameResult) ParsePlies(IEnumerable<Tokens.Token> lineTokens)
+        internal static (GamePly, GameResult) ParsePlies(
+            IEnumerable<Tokens.Token> lineTokens,
+            PgnConfiguration pgnConfiguration)
         {
             GameResult resultFromToken = GameResult.Ongoing;
             GamePly currentPly = new GamePly();
@@ -63,9 +74,13 @@ namespace Aletheia.Pgn
                 if (t.TryAsPly(out var ply))
                 {
                     currentPly.San = ply.San;
+
                     if (currentPly.PreviousPly != null)
                     {
-                        ApplyTokensToPly(currentPly.PreviousPly, tokenBuffer);
+                        ApplyTokensToPly(
+                            currentPly.PreviousPly,
+                            tokenBuffer,
+                            pgnConfiguration);
                     }
 
                     tokenBuffer.Clear();
@@ -78,10 +93,18 @@ namespace Aletheia.Pgn
                 else if (t.TryAsNull(out var nullMove))
                 {
                     currentPly.San = nullMove.NullMoveText;
+                    if (pgnConfiguration.RewriteSan)
+                    {
+                        currentPly.San = RewriteSan(currentPly.San, pgnConfiguration);
+                    }
+
                     currentPly.SanIsNullMove = true;
                     if (currentPly.PreviousPly != null)
                     {
-                        ApplyTokensToPly(currentPly.PreviousPly, tokenBuffer);
+                        ApplyTokensToPly(
+                            currentPly.PreviousPly,
+                            tokenBuffer,
+                            pgnConfiguration);
                     }
 
                     tokenBuffer.Clear();
@@ -147,7 +170,10 @@ namespace Aletheia.Pgn
             return (firstPly, resultFromToken);
         }
 
-        private static void ApplyTokensToPly(GamePly ply, List<Tokens.Token> metaTokens)
+        private static void ApplyTokensToPly(
+            GamePly ply,
+            List<Tokens.Token> metaTokens,
+            PgnConfiguration pgnConfiguration)
         {
             foreach (var mt in metaTokens)
             {
@@ -175,10 +201,89 @@ namespace Aletheia.Pgn
                 }
                 else if (mt.TryAsLine(out var line))
                 {
-                    (GamePly linePly, _) = ParsePlies(line.Line);
+                    (GamePly linePly, _) = ParsePlies(line.Line, pgnConfiguration);
                     ply.AlternateNextMoves.Add(linePly);
                 }
             }
+        }
+
+        private static string RewriteSan(string san, PgnConfiguration pgnConfiguration)
+        {
+            string rewritten = san;
+            foreach (var inputCharset in pgnConfiguration.InputCharsets)
+            {
+                (var pawnSan, var pawn) = ReplaceAny(
+                    san,
+                    inputCharset.PawnChars.ToArray(),
+                    pgnConfiguration.OutputCharsets.PawnChars.First());
+                if (pawn)
+                {
+                    return pawnSan;
+                }
+
+                (var bishopSan, var bishop) = ReplaceAny(
+                    san,
+                    inputCharset.BishopChars.ToArray(),
+                    pgnConfiguration.OutputCharsets.BishopChars.First());
+                if (bishop)
+                {
+                    return bishopSan;
+                }
+
+                (var knightSan, var knight) = ReplaceAny(
+                    san,
+                    inputCharset.KnightChars.ToArray(),
+                    pgnConfiguration.OutputCharsets.RookChars.First());
+                if (knight)
+                {
+                    return knightSan;
+                }
+
+                (var rookSan, var rook) = ReplaceAny(
+                    san,
+                    inputCharset.RookChars.ToArray(),
+                    pgnConfiguration.OutputCharsets.RookChars.First());
+                if (rook)
+                {
+                    return rookSan;
+                }
+
+                (var queenSan, var queen) = ReplaceAny(
+                    san,
+                    inputCharset.QueenChars.ToArray(),
+                    pgnConfiguration.OutputCharsets.QueenChars.First());
+                if (queen)
+                {
+                    return queenSan;
+                }
+
+                (var kingSan, var king) = ReplaceAny(
+                    san,
+                    inputCharset.KingChars.ToArray(),
+                    pgnConfiguration.OutputCharsets.KingChars.First());
+                if (king)
+                {
+                    return kingSan;
+                }
+            }
+
+            return rewritten;
+        }
+
+        private static (string, bool) ReplaceAny(string text, char[] chars, char newChar)
+        {
+            string rewritten = text;
+            bool replaced = false;
+            foreach (var c in chars)
+            {
+                if (rewritten.Contains(c))
+                {
+                    replaced = true;
+                    rewritten = rewritten.Replace(c, newChar);
+                }
+            }
+
+            return (rewritten, replaced);
         }
     }
 }

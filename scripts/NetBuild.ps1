@@ -3,7 +3,6 @@ Import-Module $commonModLocation -Force
 
 $buildProjects = Get-DeclaredSubprojects
 $projectRoot = Get-ProjectRoot
-$distFolder = Join-Path -Path $projectRoot -ChildPath 
 
 $buildProjects | ForEach-Object {
   $projectName = $_

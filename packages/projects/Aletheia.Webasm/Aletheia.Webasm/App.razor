@@ -1,12 +1,80 @@
-﻿@using Aletheia.Pgn
+﻿@using System.Reflection
+@using Aletheia.Pgn
 @using Aletheia.Pgn.Model
+@using Aletheia.Pgn.Parser
 @using Microsoft.JSInterop
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Serialization
 @code {
 
-    [JSInvokable]
-    public static PgnGame ParsePgn(string pgnText)
+    public class ErrorInfo
     {
-      var parser = new PgnGameParser();
-      return parser.ParseGame(pgnText);
+        public int Line { get; set; }
+        public int Column { get; set; }
+        public string Message { get; set; }
+    }
+
+    public class ParseResult
+    {
+        public bool IsError => ErrorInfo != null;
+        public PgnGame Game { get; set; }
+        public ErrorInfo ErrorInfo { get; set; }
+    }
+
+    public class ShouldSerializeContractResolver : CamelCasePropertyNamesContractResolver
+    {
+        public new static readonly ShouldSerializeContractResolver Instance = new ShouldSerializeContractResolver();
+
+        protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+        {
+            JsonProperty property = base.CreateProperty(member, memberSerialization);
+
+            var moveType = typeof(List<>).MakeGenericType(new []{typeof(GamePly)});
+            if (property.DeclaringType == moveType && property.PropertyName == "Manager")
+            {
+                property.ShouldSerialize =
+                    instance =>
+                    {
+                        List<GamePly> e = (List<GamePly>)instance;
+                        return e.Count > 0;
+                    };
+            }
+
+            return property;
+        }
+    }
+
+    private static readonly JsonSerializerSettings SerializationSettings = new JsonSerializerSettings()
+    {
+        ContractResolver = ShouldSerializeContractResolver.Instance,
+        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+        NullValueHandling = NullValueHandling.Ignore
+    };
+
+    [JSInvokable]
+    public static string ParsePgn(string pgnText)
+    {
+        var result = new ParseResult();
+        try
+        {
+            var parser = new PgnGameParser();
+            var parsedGame = parser.ParseGame(pgnText);
+            result.Game = parsedGame;
+            foreach (var ply in result.Game.MainLineAsList)
+            {
+                ply.PreviousPly = null;
+            }
+        }
+        catch (Game.PgnParsingException e)
+        {
+            result.ErrorInfo = new ErrorInfo()
+            {
+                Line = (int)e.Line,
+                Column = (int)e.Column,
+                Message = e.Message
+            };
+        }
+        var json = JsonConvert.SerializeObject(result);
+        return json;
     }
 }

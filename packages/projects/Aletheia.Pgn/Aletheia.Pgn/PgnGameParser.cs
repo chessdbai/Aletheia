@@ -21,7 +21,7 @@ namespace Aletheia.Pgn
         /// Options such as the character set for pieces in SAN or FAN notation
         /// can be set through this configuration.
         /// </summary>
-        public ParserConfiguration Configuration { get; set; } = new ParserConfiguration();
+        public PgnConfiguration Configuration { get; set; } = new PgnConfiguration();
 
         /// <summary>
         /// Parse a string into a PGN Chess game.
@@ -30,8 +30,12 @@ namespace Aletheia.Pgn
         /// <returns>The parsed game.</returns>
         public PgnGame ParseGame(string pgnText)
         {
-            Game.TokenizedPgnGame parsedGame = Game.parseGame(pgnText, this.Configuration);
-            return GameAssembler.AssembleGameFromTokens(parsedGame);
+            var parseConfig = new ParserConfiguration()
+            {
+                Charsets = Microsoft.FSharp.Collections.SeqModule.ToList(this.Configuration.InputCharsets),
+            };
+            Game.TokenizedPgnGame parsedGame = Game.parseGame(pgnText, parseConfig);
+            return GameAssembler.AssembleGameFromTokens(pgnText, parsedGame, this.Configuration);
         }
     }
 }

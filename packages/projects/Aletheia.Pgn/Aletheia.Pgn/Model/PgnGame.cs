@@ -20,6 +20,11 @@ namespace Aletheia.Pgn.Model
         public Dictionary<string, GameTag> AllTags { get; set; } = new Dictionary<string, GameTag>();
 
         /// <summary>
+        /// Gets or sets the original PGN game text.
+        /// </summary>
+        public string OriginalPgnText { get; set; }
+
+        /// <summary>
         /// Gets or sets the first ply.
         /// </summary>
         public GamePly FirstPly { get; set; }

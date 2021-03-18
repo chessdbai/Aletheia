@@ -8,12 +8,12 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj",
-        "projectName": "Aletheia.Pgn.Parser",
+        "projectName": "ChessDB.Alethia.Pgn.Parser",
         "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj",
         "packagesPath": "/Users/john/.nuget/packages/",
         "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/obj/",
         "projectStyle": "PackageReference",
-        "crossTargeting": true,
+        "centralPackageVersionsManagementEnabled": true,
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
@@ -21,18 +21,15 @@
           "/Users/john/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1",
-          "netstandard2.1"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+          "https://chessdb-407299974961.d.codeartifact.us-east-2.amazonaws.com/nuget/chessdb-and-npm/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {}
-          },
-          "netstandard2.1": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -41,16 +38,31 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "FParsec": {
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[1.1.1, )",
+              "generatePathProperty": true,
+              "versionCentrallyManaged": true
             },
             "FSharp.Core": {
               "target": "Package",
-              "version": "[4.7.0, )"
+              "version": "[4.7.0, )",
+              "generatePathProperty": true
+            },
+            "StyleCop.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.333, )",
+              "generatePathProperty": true,
+              "versionCentrallyManaged": true
             }
+          },
+          "centralPackageVersions": {
+            "FParsec": "[1.1.1, )",
+            "StyleCop.Analyzers": "[1.2.0-beta.333, )"
           },
           "imports": [
             "net461",
@@ -67,48 +79,15 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
-        },
-        "netstandard2.1": {
-          "dependencies": {
-            "FParsec": {
-              "target": "Package",
-              "version": "[1.1.1, )"
-            },
-            "FSharp.Core": {
-              "target": "Package",
-              "version": "[4.7.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "NETStandard.Library": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "linux-x64": {
-          "#import": []
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
     "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.0-alpha",
       "restore": {
         "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj",
-        "projectName": "Aletheia.Pgn",
+        "projectName": "ChessDB-Aletheia.Pgn",
         "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj",
         "packagesPath": "/Users/john/.nuget/packages/",
         "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/obj/",
@@ -126,10 +105,11 @@
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+          "https://chessdb-407299974961.d.codeartifact.us-east-2.amazonaws.com/nuget/chessdb-and-npm/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
               "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj": {
                 "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj"
@@ -137,6 +117,7 @@
             }
           },
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {
               "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj": {
                 "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj"
@@ -153,6 +134,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "suppressParent": "All",
@@ -170,14 +152,21 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.8, 3.1.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         },
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "suppressParent": "All",
@@ -200,12 +189,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "linux-x64": {
-          "#import": []
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -218,6 +202,7 @@
         "packagesPath": "/Users/john/.nuget/packages/",
         "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Webasm/Aletheia.Webasm/obj/",
         "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
@@ -229,10 +214,11 @@
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+          "https://chessdb-407299974961.d.codeartifact.us-east-2.amazonaws.com/nuget/chessdb-and-npm/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {
               "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj": {
                 "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn/Aletheia.Pgn.csproj"
@@ -241,6 +227,7 @@
           }
         },
         "warningProperties": {
+          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]
@@ -248,6 +235,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "Microsoft.AspNetCore.Blazor": {
               "target": "Package",
@@ -270,7 +258,17 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "StyleCop.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.333, )",
+              "versionCentrallyManaged": true
             }
+          },
+          "centralPackageVersions": {
+            "FParsec": "[1.1.1, )",
+            "StyleCop.Analyzers": "[1.2.0-beta.333, )"
           },
           "imports": [
             "net461",
@@ -287,12 +285,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "linux-x64": {
-          "#import": []
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

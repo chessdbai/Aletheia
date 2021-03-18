@@ -129,15 +129,10 @@ namespace Aletheia.Pgn
         }
 
         /// <summary>
-        /// Disposes the stream reader object.
+        /// Get the next game stream without parsing.
         /// </summary>
-        /// <param name="disposing">True if we're being called from the dispose method (vs the finalizer).</param>
-        protected void Dispose(bool disposing)
-        {
-            this.reader.Dispose();
-        }
-
-        private string GetNextGameString()
+        /// <returns>The next game string.</returns>
+        public string GetNextGameString()
         {
             var strBuilder = new StringBuilder();
             if (this.leftoverLine != null)
@@ -160,7 +155,7 @@ namespace Aletheia.Pgn
                 }
 
                 string nextLine = this.reader.ReadLine();
-                if (nextLine.StartsWith("[") && nextLine.EndsWith("\"]"))
+                if (nextLine!.StartsWith("[") && nextLine.EndsWith("\"]"))
                 {
                     this.leftoverLine = nextLine;
                     break;
@@ -172,6 +167,15 @@ namespace Aletheia.Pgn
             }
 
             return strBuilder.ToString().TrimEnd();
+        }
+
+        /// <summary>
+        /// Disposes the stream reader object.
+        /// </summary>
+        /// <param name="disposing">True if we're being called from the dispose method (vs the finalizer).</param>
+        protected void Dispose(bool disposing)
+        {
+            this.reader.Dispose();
         }
     }
 }

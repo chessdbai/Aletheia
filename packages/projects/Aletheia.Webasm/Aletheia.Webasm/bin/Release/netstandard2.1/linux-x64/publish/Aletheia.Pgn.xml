@@ -21,19 +21,22 @@
             a tokenized (recently parsed) pgn game.
             </summary>
         </member>
-        <member name="M:Aletheia.Pgn.GameAssembler.AssembleGameFromTokens(Aletheia.Pgn.Parser.Game.TokenizedPgnGame)">
+        <member name="M:Aletheia.Pgn.GameAssembler.AssembleGameFromTokens(System.String,Aletheia.Pgn.Parser.Game.TokenizedPgnGame,Aletheia.Pgn.PgnConfiguration)">
             <summary>
             Create a <see cref="T:Aletheia.Pgn.Model.PgnGame" /> from a tokenized game hot off being parsed.
             </summary>
+            <param name="pgnText">The original pgn text.</param>
             <param name="tokenizedPgnGame">The just-parsed tokenized game.</param>
+            <param name="pgnConfiguration">The configuration to use for the game.</param>
             <returns>The assembled PgnGame object.</returns>
         </member>
-        <member name="M:Aletheia.Pgn.GameAssembler.ParsePlies(System.Collections.Generic.IEnumerable{Aletheia.Pgn.Parser.Tokens.Token})">
+        <member name="M:Aletheia.Pgn.GameAssembler.ParsePlies(System.Collections.Generic.IEnumerable{Aletheia.Pgn.Parser.Tokens.Token},Aletheia.Pgn.PgnConfiguration)">
             <summary>
             Parses a tokenized line.
             </summary>
             <param name="lineTokens">A collection of tokens from the body of a game, or
             from a recursive line.</param>
+            <param name="pgnConfiguration">The configuration to use for the game.</param>
             <returns>The root game ply and the final result token.</returns>
             <exception cref="T:Aletheia.Pgn.Model.PgnFormatException">Thrown if the content of a result token contained invalid data.</exception>
         </member>
@@ -172,6 +175,11 @@
         <member name="P:Aletheia.Pgn.Model.PgnGame.AllTags">
             <summary>
             Gets or sets the dictionary of tags.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.Model.PgnGame.OriginalPgnText">
+            <summary>
+            Gets or sets the original PGN game text.
             </summary>
         </member>
         <member name="P:Aletheia.Pgn.Model.PgnGame.FirstPly">
@@ -725,6 +733,27 @@
         <member name="P:Aletheia.Pgn.Model.TimeControls.UntimedTimeControlPart.Type">
             <inheritdoc cref="T:Aletheia.Pgn.Model.TimeControls.TimeControlPart" />
         </member>
+        <member name="T:Aletheia.Pgn.PgnConfiguration">
+            <summary>
+            The configuration to use for parsing and assembling the PGN string into the game object.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.PgnConfiguration.RewriteSan">
+            <summary>
+            Gets or sets a value indicating whether the SAN moves should be rewritten from the input charset to the output charset.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.PgnConfiguration.InputCharsets">
+            <summary>
+            Gets or sets the input charsets to allow for SAN or FAN (figurine algebraic notation) move ply texts.
+            </summary>
+        </member>
+        <member name="P:Aletheia.Pgn.PgnConfiguration.OutputCharsets">
+            <summary>
+            Gets or sets the output charset. Input characters from the input charset are converted
+            into this charset for common reading.
+            </summary>
+        </member>
         <member name="T:Aletheia.Pgn.PgnGameParser">
             <summary>
             A class that interops with the F# library that does the heavy lifting
@@ -806,6 +835,12 @@
             Dumps all the remaining games to a file.
             </summary>
             <param name="file">The file to dump games to.</param>
+        </member>
+        <member name="M:Aletheia.Pgn.PgnGameStream.GetNextGameString">
+            <summary>
+            Get the next game stream without parsing.
+            </summary>
+            <returns>The next game string.</returns>
         </member>
         <member name="M:Aletheia.Pgn.PgnGameStream.Dispose(System.Boolean)">
             <summary>

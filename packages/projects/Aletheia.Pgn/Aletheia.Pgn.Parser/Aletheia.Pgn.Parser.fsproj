@@ -1,9 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Title>ChessDB.Aletheia.Pgn.Parser</Title>
+        <Description>The underlying Pgn parser. Do not use directly. Instead use ChessDB.Alethia.Pgn.</Description>
+        <PackageTags>fsharp fparsec parser pgn chessdbai alethia chess</PackageTags>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>ChessDB.Aletheia.Pgn.Parser</PackageId>
+        <Version>1.0.3</Version>
+        <Authors>john@chessdb.biz</Authors>
+        <Company>ChessDB</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IsPackable>true</IsPackable>
+        <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     </PropertyGroup>
 
     <Target Name="FSharpLint" AfterTargets="BeforeBuild">
@@ -22,7 +30,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FParsec" Version="1.1.1" />
+        <PackageReference Update="FSharp.Core" Version="4.7.0" />
+        <PackageReference Include="FParsec" Version="1.1.1"  />
     </ItemGroup>
 
 </Project>

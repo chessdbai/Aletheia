@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Webasm", "Webasm", "{14C3E8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aletheia.Webasm", "packages\projects\Aletheia.Webasm\Aletheia.Webasm\Aletheia.Webasm.csproj", "{C6ABC9B8-7528-442C-A183-885325460E9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aletheia.Pgn.Splitter", "packages\projects\Aletheia.Pgn\Aletheia.Pgn.Splitter\Aletheia.Pgn.Splitter.csproj", "{79A08E11-D476-412C-855A-1FFA9CFB7A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,7 @@ Global
 		{6FDAFA76-CFF2-4BA1-89E8-B9D2D6157F27} = {FA627B29-77B6-4738-A412-49D0A6256A58}
 		{D1ABA6F7-D5A6-4832-821B-9D7E4AFAFF40} = {FA627B29-77B6-4738-A412-49D0A6256A58}
 		{C6ABC9B8-7528-442C-A183-885325460E9F} = {14C3E854-9DEE-4C48-BC13-D945C5DED833}
+		{79A08E11-D476-412C-855A-1FFA9CFB7A1B} = {FA627B29-77B6-4738-A412-49D0A6256A58}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EF97BE5E-82A9-4598-BCE5-F1597C41AB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +50,9 @@ Global
 		{C6ABC9B8-7528-442C-A183-885325460E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6ABC9B8-7528-442C-A183-885325460E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6ABC9B8-7528-442C-A183-885325460E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A08E11-D476-412C-855A-1FFA9CFB7A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A08E11-D476-412C-855A-1FFA9CFB7A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A08E11-D476-412C-855A-1FFA9CFB7A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A08E11-D476-412C-855A-1FFA9CFB7A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
