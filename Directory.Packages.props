@@ -2,7 +2,7 @@
   <ItemGroup>
     <!-- Main Packages -->
     <PackageVersion Include="FParsec" Version="1.1.1" />
-    <PackageVersion Include="ChessDB.Aletheia.Pgn.Parser" Version="1.0.3" />
+    <PackageVersion Include="ChessDB.Aletheia.Pgn.Parser" Version="1.1.0" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.333" PrivateAssets="All" />
   </ItemGroup>
 

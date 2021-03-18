@@ -5,15 +5,14 @@
   },
   "projects": {
     "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "restore": {
         "projectUniqueName": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj",
-        "projectName": "ChessDB.Alethia.Pgn.Parser",
+        "projectName": "ChessDB.Aletheia.Pgn.Parser",
         "projectPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/Aletheia.Pgn.Parser.fsproj",
         "packagesPath": "/Users/john/.nuget/packages/",
         "outputPath": "/Users/john/aletheia/packages/projects/Aletheia.Pgn/Aletheia.Pgn.Parser/obj/",
         "projectStyle": "PackageReference",
-        "centralPackageVersionsManagementEnabled": true,
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
@@ -24,7 +23,6 @@
           "net5.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
           "https://chessdb-407299974961.d.codeartifact.us-east-2.amazonaws.com/nuget/chessdb-and-npm/v3/index.json": {}
         },
         "frameworks": {
@@ -44,23 +42,16 @@
             "FParsec": {
               "target": "Package",
               "version": "[1.1.1, )",
-              "generatePathProperty": true,
-              "versionCentrallyManaged": true
+              "generatePathProperty": true
             },
             "FSharp.Core": {
               "target": "Package",
               "version": "[4.7.0, )",
               "generatePathProperty": true
-            },
-            "StyleCop.Analyzers": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.2.0-beta.333, )",
-              "generatePathProperty": true,
-              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
+            "ChessDB.Aletheia.Pgn.Parser": "[1.1.0, )",
             "FParsec": "[1.1.1, )",
             "StyleCop.Analyzers": "[1.2.0-beta.333, )"
           },
@@ -213,7 +204,6 @@
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
           "https://chessdb-407299974961.d.codeartifact.us-east-2.amazonaws.com/nuget/chessdb-and-npm/v3/index.json": {}
         },
         "frameworks": {
@@ -258,15 +248,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
-            },
-            "StyleCop.Analyzers": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.2.0-beta.333, )",
-              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
+            "ChessDB.Aletheia.Pgn.Parser": "[1.1.0, )",
             "FParsec": "[1.1.1, )",
             "StyleCop.Analyzers": "[1.2.0-beta.333, )"
           },

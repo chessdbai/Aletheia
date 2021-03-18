@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Title>ChessDB.Alethia.Pgn</Title>
+        <Title>ChessDB.Aletheia.Pgn</Title>
         <Description>The C# Pgn parsing library.</Description>
         <PackageTags>parser pgn chessdbai alethia chess</PackageTags>
         <TargetFramework>net5.0</TargetFramework>
-        <PackageId>ChessDB.Alethia.Pgn</PackageId>
-        <Version>1.0.3</Version>
+        <PackageId>ChessDB.Aletheia.Pgn</PackageId>
+        <Version>1.1.0</Version>
         <Authors>john@chessdb.biz</Authors>
         <Company>ChessDB</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

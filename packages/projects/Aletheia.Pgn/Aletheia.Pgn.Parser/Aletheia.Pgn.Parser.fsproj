@@ -6,7 +6,7 @@
         <PackageTags>fsharp fparsec parser pgn chessdbai alethia chess</PackageTags>
         <TargetFramework>net5.0</TargetFramework>
         <PackageId>ChessDB.Aletheia.Pgn.Parser</PackageId>
-        <Version>1.0.3</Version>
+        <Version>1.1.0</Version>
         <Authors>john@chessdb.biz</Authors>
         <Company>ChessDB</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
