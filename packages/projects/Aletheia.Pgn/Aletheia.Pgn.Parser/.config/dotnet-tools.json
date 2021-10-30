@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "dotnet-fsharplint": {
-      "version": "0.16.5",
+      "version": "0.18.1",
       "commands": [
         "dotnet-fsharplint"
       ]

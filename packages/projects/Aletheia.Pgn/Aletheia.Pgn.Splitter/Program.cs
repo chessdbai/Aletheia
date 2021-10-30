@@ -63,9 +63,9 @@ namespace Aletheia.Pgn.Splitter
             {
                 gameStream = CreateGameStream(file);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
-                console.WriteLine(Red, $"Input PGN file '{file}' does not exist.");
+                console.WriteLine(Red, $"Input PGN file '{file}' does not exist");
                 return;
             }
 

@@ -4,6 +4,8 @@
     <PackageVersion Include="FParsec" Version="1.1.1" />
     <PackageVersion Include="ChessDB.Aletheia.Pgn.Parser" Version="1.1.0" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.333" PrivateAssets="All" />
+    <PackageVersion Include="Goblinfactory.Konsole" Version="6.2.0" />
+    <PackageVersion Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20371.2" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildProjectName.EndsWith(`Tests`))'">
